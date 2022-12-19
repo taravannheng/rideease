@@ -20,6 +20,18 @@ module.exports = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     },
+    colors: {
+      'primary': '#0071ff',
+      'neutral-light': '#fff',
+      'neutral-grey-1': '#f5f5f5',
+      'neutral-grey-2': '#d9d9d9',
+      'neutral-grey-3': '#9d9d9d',
+      'neutral-grey-4': '#555',
+      'neutral-dark': '#262626',
+      'status-error': '#ef084e',
+      'status-warning': '#ffeb00',
+      'status-success': '#00d500',
+    },
     extend: {},
   },
   plugins: [],
