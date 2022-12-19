@@ -32,6 +32,9 @@ module.exports = {
       'status-warning': '#ffeb00',
       'status-success': '#00d500',
     },
+    fontFamily: {
+      body: ['Roboto', 'sans-serif'],
+    },
     extend: {},
   },
   plugins: [],
