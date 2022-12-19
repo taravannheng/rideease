@@ -35,6 +35,29 @@ module.exports = {
     fontFamily: {
       body: ['Roboto', 'sans-serif'],
     },
+    fontSize: {
+      h1: ['3rem', {
+        fontWeight: '700',
+      }],
+      h2: ['2rem', {
+        fontWeight: '700',
+      }],
+      h3: ['1.5rem', {
+        fontWeight: '500',
+      }],
+      h4: ['1rem', {
+        fontWeight: '500',
+      }],
+      body: ['0.875rem', {
+        fontWeight: '400',
+      }],
+      sub1: ['0.75rem', {
+        fontWeight: '400',
+      }],
+      sub2: ['0.625rem', {
+        fontWeight: '400',
+      }],
+    },
     extend: {},
   },
   plugins: [],
