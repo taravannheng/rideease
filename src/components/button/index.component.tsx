@@ -3,10 +3,11 @@ import { FC } from "react";
 interface ButtonProps {
   type: "button" | "submit";
   buttonStyle: "primary" | "secondary" | "text";
+  className?: string;
   children: string;
 }
 
-const Button: FC<ButtonProps> = ({ type, buttonStyle, children }) => {
+const Button: FC<ButtonProps> = ({ type, buttonStyle, children, className }) => {
   let appearance: string;
 
   switch(buttonStyle) {
@@ -26,7 +27,7 @@ const Button: FC<ButtonProps> = ({ type, buttonStyle, children }) => {
   return (
     <button
       type={type}
-      className={`${appearance} w-full py-2 px-3 border-none container cursor-pointer`}
+      className={`${appearance} w-full py-2 px-3 border-none container cursor-pointer ${className}`}
     >
       {children}
     </button>
