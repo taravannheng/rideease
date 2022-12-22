@@ -8,6 +8,7 @@ import ImgCarAudiBlack from "../../assets/images/car-audi-black.png";
 import ImgStripeLogo from "../../assets/logos/sripe.svg";
 import Button from "../../components/button/index.component";
 import Carousel from "../../components/carousel/index.component";
+import Footer from "../../components/footer/index.component";
 
 const items = [
   {
@@ -82,6 +83,7 @@ const LandingPage: FC = () => {
           <Carousel items={items} />          
         </section>
       </main>
+      <Footer />
     </>
   );
 };
