@@ -53,7 +53,7 @@ const Footer: FC = () => {
           </nav>
         </div>
       </div>
-      <p className="footer__copyright mt-8 text-neutral-grey-4 text-body text-center">All Rights Reserved · {currentYear}</p>
+      <p className="footer__copyright mt-20 text-neutral-grey-4 text-body text-center">All Rights Reserved · {currentYear}</p>
     </footer>
   )
 }
