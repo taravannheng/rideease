@@ -27,7 +27,7 @@ const Button: FC<ButtonProps> = ({ type, buttonStyle, children, className }) => 
   return (
     <button
       type={type}
-      className={`${appearance} w-full py-2 px-3 border-none container cursor-pointer transition ${className}`}
+      className={`${appearance} text-body w-full py-3 px-3 border-none container cursor-pointer transition ${className}`}
     >
       {children}
     </button>
