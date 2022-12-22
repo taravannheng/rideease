@@ -8,7 +8,6 @@ interface CarouselProps {
 
 const Carousel: FC<CarouselProps> = ({ items }) => {
   const [activeItem, setActiveItem] = useState(0);
-  const translateValue = `-translate-x-[${activeItem * 100}%]`;
 
   const carouselLeftIconHandler = () => {
     if (activeItem !== 0) {
@@ -27,7 +26,7 @@ const Carousel: FC<CarouselProps> = ({ items }) => {
       <div className={`${activeItem === 0 && 'hidden'} carousel__left-icon w-10 h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full left-5 sm:left-10 lg:left-40 top-28 lg:top-48 z-10`} onClick={carouselLeftIconHandler}>
         <FontAwesomeIcon icon={faChevronLeft} className="w-5 h-5 text-neutral-dark cursor-pointer hover:text-primary" />
       </div>
-      <ul className={`landing__car-preview-slides flex flex-row w-full mt-10 transition ${translateValue}`}>
+      <ul className={`landing__car-preview-slides flex flex-row w-full mt-10 transition`} style={{ transform: `translate(-${activeItem * 100}%, 0px)` }}>
         {items.map((item, key) => (
           <li key={item.id} className={`carousel-item-${key} min-w-full flex flex-col items-center`}>
             <figure>
