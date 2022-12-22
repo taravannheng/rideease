@@ -17,8 +17,6 @@ const Accordion: FC<AccordionProps> = ({ items }) => {
     }
 
     setExpandedItem(index);
-
-    console.log(expandedItem);
   }
 
   return (
