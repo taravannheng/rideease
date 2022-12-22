@@ -11,7 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   max-width: 1680px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 code {
