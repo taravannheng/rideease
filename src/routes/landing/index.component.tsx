@@ -34,7 +34,7 @@ const items = [
 const LandingPage: FC = () => {
   return (
     <>
-      <Header />
+      <Header type="landing" />
       <main className="landing pt-10 flex flex-col items-center">
         <section className="landing__hero flex flex-col items-center">
           <img
