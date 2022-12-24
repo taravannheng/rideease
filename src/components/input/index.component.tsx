@@ -11,7 +11,8 @@ interface InputProps {
   id: string;
   name: string;
   type: "text" | "password" | "email" | "number";
-  placeholder?: "";
+  placeholder?: string;
+  className?: string;
   required: boolean;
 }
 
@@ -20,6 +21,7 @@ const Input: FC<InputProps> = ({
   name,
   type,
   placeholder = "",
+  className = "",
   required = true,
 }) => {
   const [inputState, setInputState] = useState<any>({
@@ -67,7 +69,7 @@ const Input: FC<InputProps> = ({
 
   return (
     <>
-      <div className="input">
+      <div className={`input ${className}`}>
         <label className="text-neutral-grey-4" htmlFor={id}>{`${_.capitalize(type)}:`}</label>
         <div className="relative">
           <input
