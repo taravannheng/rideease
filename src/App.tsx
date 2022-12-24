@@ -11,7 +11,7 @@ const App: FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path={ROUTES.LANDING} element={<LandingPage />} />
+        <Route path={ROUTES.HOME} element={<LandingPage />} />
         <Route
           path={ROUTES.SIGNUP}
           element={
