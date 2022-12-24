@@ -11,9 +11,11 @@ interface InputProps {
   id: string;
   name: string;
   type: "text" | "password" | "email" | "number";
+  label?: string;
   placeholder?: string;
   className?: string;
   required: boolean;
+  hideSuggestion?: boolean;
 }
 
 const Input: FC<InputProps> = ({
@@ -23,6 +25,8 @@ const Input: FC<InputProps> = ({
   placeholder = "",
   className = "",
   required = true,
+  label = type,
+  hideSuggestion = false,
 }) => {
   const [inputState, setInputState] = useState<any>({
     value: "",
@@ -31,7 +35,7 @@ const Input: FC<InputProps> = ({
   const [showSuggestion, setShowSuggestion] = useState(false);
 
   const inputSuggestionHandler = () => {
-    if (type === 'password') {
+    if (type === 'password' && !hideSuggestion) {
       setShowSuggestion(true);
     }
   };
@@ -70,7 +74,7 @@ const Input: FC<InputProps> = ({
   return (
     <>
       <div className={`input ${className}`}>
-        <label className="text-neutral-grey-4" htmlFor={id}>{`${_.capitalize(type)}:`}</label>
+        <label className="text-neutral-grey-4" htmlFor={id}>{`${label !== type ? _.capitalize(label) : _.capitalize(type)}:`}</label>
         <div className="relative">
           <input
             onFocus={inputSuggestionHandler}
