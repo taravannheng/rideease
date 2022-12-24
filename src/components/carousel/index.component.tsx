@@ -27,8 +27,8 @@ const Carousel: FC<CarouselProps> = ({ items }) => {
         <FontAwesomeIcon icon={faChevronLeft} className="w-5 h-5 text-neutral-dark cursor-pointer hover:text-primary" />
       </div>
       <ul className={`landing__car-preview-slides flex flex-row w-full mt-10 transition`} style={{ transform: `translate(-${activeItem * 100}%, 0px)` }}>
-        {items.map((item, key) => (
-          <li key={item.id} className={`carousel-item-${key} min-w-full flex flex-col items-center`}>
+        {items.map((item, index) => (
+          <li key={item.id} className={`carousel-item-${index} min-w-full flex flex-col items-center`}>
             <figure>
               <img src={item.src} alt={item.alt} className={`max-h-60 lg:h-96 lg:max-h-96 ${item.className}`} />
               <figcaption className="text-center text-neutral-grey-4">
