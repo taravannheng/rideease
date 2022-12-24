@@ -21,11 +21,11 @@ const Header: FC<HeaderProps> = ({ type }) => {
 
   return (
     <header className="w-full bg-neutral-grey-1 h-20 px-10 flex justify-between items-center">
-      <Link to={ROUTES.HOME}>
+      <Link to={ROUTES.HOME} className={`${type === "auth" && "m-auto"}`}>
         <img
           src={Logo}
           alt="logo"
-          className={`h-10 xl:h-12 ${type === "auth" && "m-auto"}`}
+          className="h-10 xl:h-12"
         />
       </Link>
 
