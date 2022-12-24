@@ -28,8 +28,8 @@ const accordionItems = [
 const Footer: FC = () => {
   return (
     <footer className="footer bg-neutral-grey-1 p-10 mt-20 flex flex-col">
-      <div className="flex flex-row justify-between">
-        <div className="footer__left-section md:basis-1/4 basis:1/2">
+      <div className="flex flex-col gap-y-8 md:flex-row md:justify-between">
+        <div className="footer__left-section md:basis-1/4">
           <Link to={ROUTES.HOME}>
             <img src={Logo} alt="Logo" className="h-10 mb-4" />
           </Link>
@@ -38,7 +38,7 @@ const Footer: FC = () => {
             2007 Australia
           </p>
         </div>
-        <Accordion items={accordionItems} />
+        <Accordion items={accordionItems} className="md:hidden" />
         <div className="footer__right-section md:basis-3/4 basis:1/2 hidden md:flex flex-row sm:gap-x-10 md:gap-x-24 justify-end lg:justify-start">
           <nav>
             <h4 className="text-h4 text-neutral-dark mb-4">Services</h4>
