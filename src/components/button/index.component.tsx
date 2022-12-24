@@ -5,9 +5,10 @@ interface ButtonProps {
   buttonStyle: "primary" | "secondary" | "text";
   className?: string;
   children: string;
+  imageSource?: string;
 }
 
-const Button: FC<ButtonProps> = ({ type, buttonStyle, children, className }) => {
+const Button: FC<ButtonProps> = ({ type, buttonStyle, children, className, imageSource }) => {
   let appearance: string;
 
   switch(buttonStyle) {
@@ -27,9 +28,9 @@ const Button: FC<ButtonProps> = ({ type, buttonStyle, children, className }) => 
   return (
     <button
       type={type}
-      className={`${appearance} text-body w-full py-3 px-3 border-none container cursor-pointer transition ${className}`}
+      className={`${appearance} text-body w-full py-3 px-3 border-none container cursor-pointer transition flex flex-row justify-center items-center ${className}`}
     >
-      {children}
+      {imageSource && <img src={imageSource} alt="button logo" className="w-6 h-6 mr-2" />} {children}
     </button>
   );
 };
