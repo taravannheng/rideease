@@ -74,7 +74,7 @@ const Input: FC<InputProps> = ({
   return (
     <>
       <div className={`input ${className}`}>
-        <label className="text-neutral-grey-4" htmlFor={id}>{`${label !== type ? _.capitalize(label) : _.capitalize(type)}:`}</label>
+        <label className="text-neutral-grey-4" htmlFor={id}>{`${label !== type ? _.startCase(label) : _.startCase(type)}:`}</label>
         <div className="relative">
           <input
             onFocus={inputSuggestionHandler}
@@ -96,7 +96,7 @@ const Input: FC<InputProps> = ({
         </div>
         {showSuggestion && (
           <div className="input__suggestion bg-neutral-grey-1 p-2 mx-2 my-2">
-            <p className="text-sub1 text-neutral-grey-4">{`${_.capitalize(
+            <p className="text-sub1 text-neutral-grey-4">{`${_.startCase(
               String(type)
             )} should include:`}</p>
             <ul className="text-sub1 text-neutral-grey-4 list-disc list-inside">
