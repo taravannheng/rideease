@@ -5,9 +5,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 interface AccordionProps {
   items: { id: string, title: string; innerItems: string[] }[];
+  className?: string;
 }
 
-const Accordion: FC<AccordionProps> = ({ items }) => {
+const Accordion: FC<AccordionProps> = ({ items, className }) => {
   const [expandedItem, setExpandedItem] = useState<null | number>(null)
 
   const toggle = (index: number) => {
@@ -20,7 +21,7 @@ const Accordion: FC<AccordionProps> = ({ items }) => {
   }
 
   return (
-    <ul className="accordion md:hidden ml-8 basis-1/2">
+    <ul className={`accordion ${className}`}>
       {items.map((item, index) => (
         <li key={item.id} className={`transition border-[1px] border-neutral-grey-2 overflow-hidden mb-2 p-2 cursor-pointer ${expandedItem === index ? 'h-auto' : 'h-10'}`}>
           <h4 onClick={() => toggle(index)} className="text-h4 text-neutral-dark hover:text-primary flex flex-row justify-between items-center mb-2">{item.title} <FontAwesomeIcon icon={expandedItem === index ? faMinus : faPlus} /></h4>
