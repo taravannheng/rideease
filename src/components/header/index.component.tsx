@@ -50,12 +50,16 @@ const Header: FC<HeaderProps> = ({ type }) => {
               !showMobileNav && "translate-x-full"
             } transition`}
           >
-            <Button type="button" buttonStyle="text">
-              Sign In
-            </Button>
-            <Button type="button" buttonStyle="text">
-              Sign Up
-            </Button>
+            <Link to={ROUTES.SIGNIN}>
+              <Button type="button" buttonStyle="text">
+                Sign In
+              </Button>
+            </Link>
+            <Link to={ROUTES.SIGNUP}>
+              <Button type="button" buttonStyle="text">
+                Sign Up
+              </Button>
+            </Link>
             <FontAwesomeIcon
               icon={faXmark}
               className="w-6 h-6 cursor-pointer text-neutral-dark absolute top-7 right-10"
