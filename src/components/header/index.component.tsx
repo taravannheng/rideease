@@ -1,10 +1,12 @@
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Logo from "../../assets/logos/logo-dark.png";
 import Button from "../button/index.component";
 import Cart from "../cart/index.component";
+import * as ROUTES from "../../utils/constants/routes";
 
 interface HeaderProps {
   type: "landing" | "auth" | "cart";
@@ -19,11 +21,13 @@ const Header: FC<HeaderProps> = ({ type }) => {
 
   return (
     <header className="w-full bg-neutral-grey-1 h-20 px-10 flex justify-between items-center">
-      <img
-        src={Logo}
-        alt="logo"
-        className={`h-10 xl:h-12 ${type === "auth" && "m-auto"}`}
-      />
+      <Link to={ROUTES.HOME}>
+        <img
+          src={Logo}
+          alt="logo"
+          className={`h-10 xl:h-12 ${type === "auth" && "m-auto"}`}
+        />
+      </Link>
 
       {/* LANDING */}
       {type === "landing" && (
@@ -64,7 +68,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
       {/* CART */}
       {type === "cart" && (
         <>
-          <Cart />          
+          <Cart />
         </>
       )}
     </header>
