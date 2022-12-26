@@ -33,12 +33,16 @@ const Header: FC<HeaderProps> = ({ type }) => {
       {type === "landing" && (
         <>
           <nav className="buttonContainer w-56 gap-x-1 hidden xl:flex">
-            <Button type="button" buttonStyle="text">
-              Sign In
-            </Button>
-            <Button type="button" buttonStyle="primary">
-              Sign Up
-            </Button>
+            <Link to={ROUTES.SIGNIN} className="w-full">
+              <Button type="button" buttonStyle="text">
+                Sign In
+              </Button>
+            </Link>
+            <Link to={ROUTES.SIGNUP} className="w-full">
+              <Button type="button" buttonStyle="primary">
+                Sign Up
+              </Button>
+            </Link>
           </nav>
           <FontAwesomeIcon
             icon={faBars}
