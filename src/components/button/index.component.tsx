@@ -7,6 +7,7 @@ interface ButtonProps {
   children: string;
   imageSource?: string;
   route?: string;
+  onClick?: () => void;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ const Button: FC<ButtonProps> = ({
   className,
   imageSource,
   route,
+  onClick,
 }) => {
   let appearance: string;
 
@@ -57,6 +59,7 @@ const Button: FC<ButtonProps> = ({
       {!route && (
         <button
           type={type}
+          onClick={onClick}
           className={`${appearance} text-body  border-none container cursor-pointer transition ${className} min-w-full flex flex-row justify-center items-center py-3 px-3`}
         >
           {imageSource && (
