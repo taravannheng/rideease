@@ -133,21 +133,21 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
       navigate(ROUTES.BOOK);
     } catch (error: any) {
       const errorCode = error.code;
-      let messageType = 'default';
-      let message = '';
-      
-      switch(errorCode) {
-        case 'auth/email-already-in-use':
-          messageType = 'error';
-          message = 'An account with this email already exist.'
+      let messageType = "default";
+      let message = "";
+
+      switch (errorCode) {
+        case "auth/email-already-in-use":
+          messageType = "error";
+          message = "An account with this email already exist.";
           break;
-        case 'auth/invalid-email':
-          messageType = 'error';
-          message = 'Email is invalid!'
+        case "auth/invalid-email":
+          messageType = "error";
+          message = "Email is invalid!";
           break;
-        case 'auth/weak-password':
-          messageType = 'warn';
-          message = 'Password is weak!'
+        case "auth/weak-password":
+          messageType = "warn";
+          message = "Password is weak!";
           break;
       }
 
@@ -168,28 +168,28 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      let messageType = 'default';
-      let message = '';
-      
-      switch(errorCode) {
-        case 'auth/email-already-in-use':
-          messageType = 'error';
-          message = 'An account with this email already exist.'
+      let messageType = "default";
+      let message = "";
+
+      switch (errorCode) {
+        case "auth/email-already-in-use":
+          messageType = "error";
+          message = "An account with this email already exist.";
           break;
-        case 'auth/invalid-email':
-          messageType = 'error';
-          message = 'Email is invalid!'
+        case "auth/invalid-email":
+          messageType = "error";
+          message = "Email is invalid!";
           break;
-        case 'auth/weak-password':
-          messageType = 'warn';
-          message = 'Password is weak!'
+        case "auth/weak-password":
+          messageType = "warn";
+          message = "Password is weak!";
           break;
-        case 'auth/user-not-found':
-          messageType = 'error';
-          message = 'User not found!'
-          break;  
+        case "auth/user-not-found":
+          messageType = "error";
+          message = "User not found!";
+          break;
         default:
-          messageType = 'error';
+          messageType = "error";
           message = errorMessage;
       }
 
@@ -210,7 +210,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
       const email = error.customData.email;
       const credential = GoogleAuthProvider.credentialFromError(error);
 
-      notify('error', errorMessage);
+      notify("error", errorMessage);
     }
   };
 
@@ -239,62 +239,73 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
       <div className="auth__img hidden lg:basis-7/12 lg:block p-8 pr-0">
         <div className="bg-auth-banner bg-center bg-cover w-full h-full"></div>
       </div>
-      <form
-        className="auth-form px-8 basis-full lg:basis-5/12 lg:mb-32"
-        onSubmit={
-          type === "sign up" ? signUpSubmitHandler : signInSubmitHandler
-        }
-      >
-        <ToastContainer />
-        <h1 className="text-h4 text-neutral-dark mt-16 lg:mt-32 mb-8">
-          SIGN {type === "sign up" ? "UP" : "IN"}
-        </h1>
-        <Input
-          id="input-email"
-          name="email"
-          type="email"
-          required
-          className="mb-4"
-          showSuggestion={showSuggestion}
-          hideSuggestion
-          value={authState.email.value}
-          isValid={authState.email.isValid}
-          onChange={inputChangeHandler}
-          onBlur={inputCheckHandler}
-          onFocus={inputSuggestionHandler}
-        />
-        <Input
-          id="input-password"
-          name="password"
-          type="password"
-          required
-          className="mb-4"
-          showSuggestion={showSuggestion}
-          value={authState.password.value}
-          isValid={authState.password.isValid}
-          onChange={inputChangeHandler}
-          onBlur={inputCheckHandler}
-          onFocus={inputSuggestionHandler}
-        />
-        <Input
-          id="input-confirm-password"
-          name="password"
-          type="password"
-          label="Confirm Password"
-          required
-          className="mb-8"
-          showSuggestion={showSuggestion}
-          hideSuggestion
-          value={authState.confirmPassword.value}
-          isValid={authState.confirmPassword.isMatched}
-          onChange={inputChangeHandler}
-          onBlur={inputCheckHandler}
-          onFocus={inputSuggestionHandler}
-          errorMessage="Password not match!"
-        />
-        <Button buttonStyle="primary" type="submit" className="mb-4">
-          {type === "sign up" ? "Sign Up" : "Sign In"}
-        </Button>
+      <div className="auth__form px-8 basis-full lg:basis-5/12 lg:mb-32">
+        <form
+          onSubmit={
+            type === "sign up" ? signUpSubmitHandler : signInSubmitHandler
+          }
+        >
+          <ToastContainer />
+          <h1 className="text-h4 text-neutral-dark mt-16 lg:mt-32 mb-8">
+            SIGN {type === "sign up" ? "UP" : "IN"}
+          </h1>
+          <Input
+            id="input-email"
+            name="email"
+            type="email"
+            required
+            className="mb-4"
+            showSuggestion={showSuggestion}
+            hideSuggestion
+            value={authState.email.value}
+            isValid={authState.email.isValid}
+            onChange={inputChangeHandler}
+            onBlur={inputCheckHandler}
+            onFocus={inputSuggestionHandler}
+          />
+          <Input
+            id="input-password"
+            name="password"
+            type="password"
+            required
+            className="mb-4"
+            showSuggestion={showSuggestion}
+            value={authState.password.value}
+            isValid={authState.password.isValid}
+            onChange={inputChangeHandler}
+            onBlur={inputCheckHandler}
+            onFocus={inputSuggestionHandler}
+          />
+          <Input
+            id="input-confirm-password"
+            name="password"
+            type="password"
+            label="Confirm Password"
+            required
+            className="mb-8"
+            showSuggestion={showSuggestion}
+            hideSuggestion
+            value={authState.confirmPassword.value}
+            isValid={authState.confirmPassword.isMatched}
+            onChange={inputChangeHandler}
+            onBlur={inputCheckHandler}
+            onFocus={inputSuggestionHandler}
+            errorMessage="Password not match!"
+          />
+          <Button
+            buttonStyle="primary"
+            type="submit"
+            className="mb-4"
+            disabled={
+              authState.email.isValid === true &&
+              authState.password.isValid === true
+                ? false
+                : true
+            }
+          >
+            {type === "sign up" ? "Sign Up" : "Sign In"}
+          </Button>
+        </form>
         {type === "sign in" && (
           <Button
             buttonStyle="secondary"
@@ -328,7 +339,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
         >
           {type === "sign up" ? "Sign In" : "Sign Up"}
         </Button>
-      </form>
+      </div>
     </section>
   );
 };
