@@ -83,7 +83,7 @@ const LandingPage: FC = () => {
           <Carousel items={items} />          
         </section>
       </main>
-      <Footer />
+      <Footer className="mt-20" />
     </>
   );
 };

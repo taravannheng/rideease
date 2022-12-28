@@ -25,9 +25,13 @@ const accordionItems = [
   },
 ];
 
-const Footer: FC = () => {
+interface FooterProps {
+  className?: string;
+}
+
+const Footer: FC<FooterProps> = ({ className = '' }) => {
   return (
-    <footer className="footer bg-neutral-grey-1 p-10 mt-20 flex flex-col">
+    <footer className={`footer bg-neutral-grey-1 p-10 flex flex-col ${className}`}>
       <div className="flex flex-col gap-y-8 md:flex-row md:justify-between">
         <div className="footer__left-section md:basis-1/4">
           <Link to={ROUTES.HOME}>
