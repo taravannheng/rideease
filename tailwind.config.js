@@ -61,7 +61,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'auth-banner': "url('/src/assets/images/auth-banner.png')",
+        'auth-banner': "url('/src/assets/images/auth-banner.jpg')",
       },
     },
   },
