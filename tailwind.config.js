@@ -59,7 +59,11 @@ module.exports = {
         fontWeight: '400',
       }],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'auth-banner': "url('/src/assets/images/auth-banner.png')",
+      },
+    },
   },
   plugins: [],
 }
