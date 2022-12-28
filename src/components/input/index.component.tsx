@@ -1,7 +1,5 @@
-import { FC, FormEvent, useState } from "react";
+import { FC, FormEvent } from "react";
 import _ from "lodash";
-
-import { checkEmpty } from "../../utils/validators/validator";
 
 interface InputProps {
   id: string;
