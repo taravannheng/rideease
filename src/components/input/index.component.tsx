@@ -1,14 +1,12 @@
 import { FC, FormEvent, useState } from "react";
 import _ from "lodash";
 
-import {
-  checkEmail,
-  checkPassword,
-  checkEmpty,
-} from "../../utils/validators/validator";
+import { checkEmpty } from "../../utils/validators/validator";
 
 interface InputProps {
   id: string;
+  value: string;
+  isValid: null | boolean;
   name: string;
   type: "text" | "password" | "email" | "number";
   label?: string;
@@ -16,10 +14,17 @@ interface InputProps {
   className?: string;
   required: boolean;
   hideSuggestion?: boolean;
+  onChange: (e: FormEvent) => void;
+  onBlur: (e: FormEvent) => void;
+  onFocus: (e: FormEvent) => void;
+  errorMessage?: string;
+  showSuggestion: boolean;
 }
 
 const Input: FC<InputProps> = ({
   id,
+  value,
+  isValid,
   name,
   type,
   placeholder = "",
@@ -27,49 +32,12 @@ const Input: FC<InputProps> = ({
   required = true,
   label = type,
   hideSuggestion = false,
+  errorMessage = "Invalid!",
+  showSuggestion,
+  onChange,
+  onBlur,
+  onFocus,
 }) => {
-  const [inputState, setInputState] = useState<any>({
-    value: "",
-    isValid: null,
-  });
-  const [showSuggestion, setShowSuggestion] = useState(false);
-
-  const inputSuggestionHandler = () => {
-    if (type === 'password' && !hideSuggestion) {
-      setShowSuggestion(true);
-    }
-  };
-
-  const inputChangeHandler = (e: FormEvent) => {
-    const inputElement = e.target as HTMLInputElement;
-    const inputVal = inputElement.value;
-
-    // update input
-    setInputState({ value: inputVal, isValid: null });
-  };
-
-  const inputCheckHandler = () => {
-    let isValidInput = null;
-
-    // hide suggestion
-    setShowSuggestion(false);
-
-    // check validity
-    if (type === "text") {
-      isValidInput = checkEmpty(inputState.value);
-    }
-
-    if (type === "password") {
-      isValidInput = checkPassword(inputState.value);
-    }
-
-    if (type === "email") {
-      isValidInput = checkEmail(inputState.value);
-    }
-
-    // update input
-    setInputState({ ...inputState, isValid: isValidInput });
-  };
 
   return (
     <>
@@ -77,24 +45,24 @@ const Input: FC<InputProps> = ({
         <label className="text-neutral-grey-4" htmlFor={id}>{`${label !== type ? _.startCase(label) : _.startCase(type)}:`}</label>
         <div className="relative">
           <input
-            onFocus={inputSuggestionHandler}
-            onChange={inputChangeHandler}
-            onBlur={inputCheckHandler}
-            value={inputState.value}
+            onFocus={onFocus}
+            onChange={onChange}
+            onBlur={onBlur}
+            value={value}
             type={type}
             placeholder={placeholder}
             id={id}
             name={name}
             className={`input__field ${
-              inputState.isValid === false
+              isValid === false
                 ? "text-status-error"
                 : "text-neutral-dark"
             } w-full h-10 bg-neutral-grey-1 text-neutral-dark outline-none px-4 text-body border-primary focus:border-2 z-10 relative`}
             required={required}
           />
-          <p className={`input__error-message text-status-error text-body absolute top-0 right-0 transition ${inputState.isValid === false && '-translate-y-6'}`}>Invalid!</p>
+          <p className={`input__error-message text-status-error text-body absolute top-0 right-0 transition ${isValid === false && '-translate-y-6'}`}>{errorMessage}</p>
         </div>
-        {showSuggestion && (
+        {showSuggestion && hideSuggestion === false && (
           <div className="input__suggestion bg-neutral-grey-1 p-2 mx-2 my-2">
             <p className="text-sub1 text-neutral-grey-4">{`${_.startCase(
               String(type)
