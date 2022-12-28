@@ -7,6 +7,7 @@ interface ButtonProps {
   children: string;
   imageSource?: string;
   route?: string;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -17,6 +18,7 @@ const Button: FC<ButtonProps> = ({
   className,
   imageSource,
   route,
+  disabled = false,
   onClick,
 }) => {
   let appearance: string;
@@ -42,6 +44,7 @@ const Button: FC<ButtonProps> = ({
         <Link to={route}>
           <button
             type={type}
+            disabled={disabled}
             className={`${appearance} text-body  border-none container cursor-pointer transition ${className} min-w-full flex flex-row justify-center items-center py-3 px-3`}
           >
             {imageSource && (
@@ -60,6 +63,7 @@ const Button: FC<ButtonProps> = ({
         <button
           type={type}
           onClick={onClick}
+          disabled={disabled}
           className={`${appearance} text-body  border-none container cursor-pointer transition ${className} min-w-full flex flex-row justify-center items-center py-3 px-3`}
         >
           {imageSource && (
