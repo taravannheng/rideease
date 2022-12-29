@@ -45,7 +45,7 @@ const Button: FC<ButtonProps> = ({
           <button
             type={type}
             disabled={disabled}
-            className={`${appearance} text-body  border-none container cursor-pointer transition ${className} min-w-full flex flex-row justify-center items-center py-3 px-3`}
+            className={`${appearance} text-body  border-none container cursor-pointer transition min-w-full flex flex-row justify-center items-center py-3 px-3 ${className}`}
           >
             {imageSource && (
               <img
@@ -64,7 +64,7 @@ const Button: FC<ButtonProps> = ({
           type={type}
           onClick={onClick}
           disabled={disabled}
-          className={`${appearance} text-body  border-none container cursor-pointer transition ${className} min-w-full flex flex-row justify-center items-center py-3 px-3`}
+          className={`${appearance} text-body  border-none container cursor-pointer transition min-w-full flex flex-row justify-center items-center py-3 px-3 ${className}`}
         >
           {imageSource && (
             <img src={imageSource} alt="button logo" className="w-6 h-6 mr-2" />
