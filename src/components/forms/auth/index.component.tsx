@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from "react";
+import { FC, FormEvent, useState, useContext } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -20,6 +20,7 @@ import {
   checkPassword,
   checkMatchedPassword,
 } from "../../../utils/validators/validator";
+import UserContext from "../../../contexts/user-context";
 
 interface AuthFormProps {
   type: "sign up" | "sign in";
@@ -39,6 +40,9 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
     confirmPassword: { value: "", isMatched: null },
   });
   const [showSuggestion, setShowSuggestion] = useState(false);
+
+  // CONTEXTS
+  const {setUserState} = useContext(UserContext);
 
   // ROUTES
   const navigate = useNavigate();
@@ -125,11 +129,12 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
     e.preventDefault();
 
     try {
-      await createUserWithEmailAndPassword(
+      const result = await createUserWithEmailAndPassword(
         auth,
         authState.email.value,
         authState.password.value
       );
+      setUserState(result);
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
@@ -159,11 +164,12 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
     e.preventDefault();
 
     try {
-      await signInWithEmailAndPassword(
+      const result = await signInWithEmailAndPassword(
         auth,
         authState.email.value,
         authState.password.value
       );
+      setUserState(result);
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
@@ -203,6 +209,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
       const credential = await GoogleAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
       const user = result.user;
+      setUserState(result);
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
