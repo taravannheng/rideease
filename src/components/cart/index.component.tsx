@@ -9,8 +9,7 @@ const Cart: FC = () => {
 
   return (
     <div className="cart h-12 bg-primary hover:bg-primary-dark transition border-none text-neutral-light text-body flex items-center justify-between px-6 gap-x-4 cursor-pointer">
-      <span className="hidden sm:inline">Reservations</span>
-      <FontAwesomeIcon icon={faCartShopping} className="inline sm:hidden w-[24px] h-[24px]" />
+      <FontAwesomeIcon icon={faCartShopping} className="w-[24px] h-[24px]" />
       <div className="cart__count-container w-6 h-6 bg-neutral-light flex items-center justify-center rounded-full">
         <span className="cart__count text-neutral-dark text-body">{cartState.length}</span>
       </div>
