@@ -114,16 +114,18 @@ const Carousel: FC<CarouselProps> = ({ items }) => {
           </li>
         ))}
       </ul>
-      <div className="booking__book-button flex items-center justify-center mt-16">
-        <Button
-          className="min-w-[8rem] w-32 max-w-lg"
-          buttonStyle="primary"
-          type="button"
-          onClick={cartHandler}
-        >
-          {cartState.find((item: any) => item === items[activeItem]) ? 'Added to Cart' : 'Book Now'}
-        </Button>
-      </div>
+      {items[0]?.details && (
+        <div className="booking__book-button flex items-center justify-center mt-16">
+          <Button
+            className="min-w-[8rem] w-32 max-w-lg"
+            buttonStyle="primary"
+            type="button"
+            onClick={cartHandler}
+          >
+            {cartState.find((item: any) => item === items[activeItem]) ? 'Added to Cart' : 'Book Now'}
+          </Button>
+        </div>
+      )}
       <div
         className={`${
           activeItem === items.length - 1 && "hidden"
