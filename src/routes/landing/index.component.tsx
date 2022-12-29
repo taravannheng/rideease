@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from "react-router-dom";
+import * as ROUTES from '../../utils/constants/routes'
 
 import Header from "../../components/header/index.component";
 import ImgCarLamborghini from "../../assets/images/car-lamborghini.png";
@@ -52,9 +54,11 @@ const LandingPage: FC = () => {
             inceptos himenaeos. Curabitur tempus urna at turpis condimentum
           </p>
           <div className="button-container w-40 mt-8">
-            <Button type="button" buttonStyle="primary">
-              Start Booking
-            </Button>
+            <Link to={ROUTES.BOOKING}>
+              <Button type="button" buttonStyle="primary">
+                Start Booking
+              </Button>
+            </Link>
           </div>
         </section>
         <section className="landing__payment w-full flex flex-row justify-center items-center bg-neutral-grey-1 py-10 mt-20">
