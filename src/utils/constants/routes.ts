@@ -1,7 +1,7 @@
 export const HOME = '/'
 export const SIGNUP = '/signup'
 export const SIGNIN = '/signin'
-export const BOOK = '/book'
+export const BOOKING = '/booking'
 export const PAYMENT = '/payment'
 export const CONFIRMATION = '/confirmation'
 export const NOTFOUND = '/*'

@@ -130,7 +130,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
         authState.email.value,
         authState.password.value
       );
-      navigate(ROUTES.BOOK);
+      navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
       let messageType = "default";
@@ -164,7 +164,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
         authState.email.value,
         authState.password.value
       );
-      navigate(ROUTES.BOOK);
+      navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -203,7 +203,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
       const credential = await GoogleAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
       const user = result.user;
-      navigate(ROUTES.BOOK);
+      navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
       const errorMessage = error.message;
