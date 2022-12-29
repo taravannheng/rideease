@@ -14,6 +14,8 @@ const SignInPage = React.lazy(() => import("./routes/signin/index.component"));
 const BookingPage = React.lazy(
   () => import("./routes/booking/index.component")
 );
+const CartPage = React.lazy(() => import("./routes/cart/index.component"));
+const NotFoundPage = React.lazy(() => import("./routes/notfound/index.component"));
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
@@ -46,6 +48,22 @@ const App: FC = () => {
               element={
                 <Suspense fallback={<>...</>}>
                   <BookingPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path={ROUTES.CART}
+              element={
+                <Suspense fallback={<>...</>}>
+                  <CartPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path={ROUTES.NOTFOUND}
+              element={
+                <Suspense fallback={<>...</>}>
+                  <NotFoundPage />
                 </Suspense>
               }
             />
