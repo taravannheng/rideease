@@ -1,5 +1,6 @@
 import { FC, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "../../components/header/index.component";
 import CartItem from "../../components/cart-item/index.component";
@@ -17,8 +18,10 @@ const CartPage: FC = () => {
     const el = e.target as HTMLButtonElement;
     const elID = el.id;
 
-    setCartState((prevCartState: any) => prevCartState.filter((item: any) => item.id !== elID));
-  }
+    setCartState((prevCartState: any) =>
+      prevCartState.filter((item: any) => item.id !== elID)
+    );
+  };
 
   useEffect(() => {
     if (cartState.length === 0) {
@@ -30,6 +33,18 @@ const CartPage: FC = () => {
     <>
       <Header type="auth" />
       <main className="cart pt-12">
+        <div className="min-w-[8rem] w-32 max-w-lg ml-6 md:ml-12 mb-8">
+          <Button
+            buttonStyle="go-back"
+            iconSource={faArrowLeft}
+            route={ROUTES.BOOKING}
+            type="button"
+            className="min-w-[8rem] w-32 max-w-lg !justify-start !p-0"
+          >
+            Booking
+          </Button>
+        </div>
+
         <h1 className="cart__title text-neutral-dark text-h3 md:text-h2 pl-6 md:pl-12">
           Cart
         </h1>
@@ -46,7 +61,12 @@ const CartPage: FC = () => {
         </ul>
         <ul className="cart__item px-6 md:px-12 flex flex-col items-center justify-between mt-12 gap-x-2">
           {cartState.map((item: any) => (
-            <CartItem key={item.id} item={item} className="mb-8" onClick={removeItemHandler} />
+            <CartItem
+              key={item.id}
+              item={item}
+              className="mb-8"
+              onClick={removeItemHandler}
+            />
           ))}
         </ul>
         <div className="flex flex-row justify-end px-6 md:px-12 mt-4">
@@ -63,14 +83,8 @@ const CartPage: FC = () => {
           </p>
         </div>
         <div className="flex flex-row gap-x-4 justify-between px-6 md:px-12 mt-12">
-          <Button
-            buttonStyle="secondary"
-            route={ROUTES.BOOKING}
-            type="button"
-            className="min-w-[8rem] w-32 max-w-lg"
-          >
-            Back to Booking
-          </Button>
+          <div></div>
+          <div></div>
           <div className="basis-1/3 flex justify-center">
             <Button
               buttonStyle="primary"
