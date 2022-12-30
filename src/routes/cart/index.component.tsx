@@ -1,6 +1,6 @@
 import { FC, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "../../components/header/index.component";
 import CartItem from "../../components/cart-item/index.component";
@@ -34,10 +34,10 @@ const CartPage: FC = () => {
     <>
       <Header type="cart" />
       <main className="cart pt-12">
-        <div className="min-w-[8rem] w-32 max-w-lg ml-6 md:ml-12 mb-8">
+        <div className="min-w-[8rem] w-32 max-w-lg ml-6 md:ml-12 mb-4">
           <Button
             buttonStyle="go-back"
-            iconSource={faArrowLeft}
+            iconSource={faChevronLeft}
             route={ROUTES.BOOKING}
             type="button"
             className="min-w-[8rem] w-32 max-w-lg !justify-start !p-0"
