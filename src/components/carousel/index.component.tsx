@@ -7,6 +7,7 @@ import {
 
 import Button from "../button/index.component";
 import CartContext from "../../contexts/cart-context";
+import CartItemModel from "../../models/cart-item";
 
 interface CarouselProps {
   items: {
@@ -45,8 +46,8 @@ const Carousel: FC<CarouselProps> = ({ items }) => {
   };
 
   const cartHandler = () => {
-    if (cartState.find((item: any) => item.id === items[activeItem].id)) {
-      setCartState(cartState.filter((item: any) => item.id !== items[activeItem].id));
+    if (cartState.find((item: CartItemModel) => item.id === items[activeItem].id)) {
+      setCartState(cartState.filter((item: CartItemModel) => item.id !== items[activeItem].id));
       return ;
     }
 
@@ -122,7 +123,7 @@ const Carousel: FC<CarouselProps> = ({ items }) => {
             type="button"
             onClick={cartHandler}
           >
-            {cartState.find((item: any) => item.id === items[activeItem].id) ? 'Added to Cart' : 'Book Now'}
+            {cartState.find((item: CartItemModel) => item.id === items[activeItem].id) ? 'Added to Cart' : 'Book Now'}
           </Button>
         </div>
       )}

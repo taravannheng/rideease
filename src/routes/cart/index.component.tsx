@@ -8,6 +8,7 @@ import Button from "../../components/button/index.component";
 import Footer from "../../components/footer/index.component";
 import CartContext from "../../contexts/cart-context";
 import * as ROUTES from "../../utils/constants/routes";
+import CartItemModel from "../../models/cart-item";
 
 const CartPage: FC = () => {
   const { cartState, setCartState } = useContext(CartContext);
@@ -18,8 +19,8 @@ const CartPage: FC = () => {
     const el = e.target as HTMLButtonElement;
     const elID = el.id;
 
-    setCartState((prevCartState: any) =>
-      prevCartState.filter((item: any) => item.id !== elID)
+    setCartState((prevCartState: CartItemModel[]) =>
+      prevCartState.filter((item: CartItemModel) => item.id !== elID)
     );
   };
 
@@ -60,7 +61,7 @@ const CartPage: FC = () => {
           </li>
         </ul>
         <ul className="cart__item px-6 md:px-12 flex flex-col items-center justify-between mt-12 gap-x-2">
-          {cartState.map((item: any) => (
+          {cartState.map((item: CartItemModel) => (
             <CartItem
               key={item.id}
               item={item}
@@ -75,7 +76,7 @@ const CartPage: FC = () => {
             <span>
               $
               {cartState.reduce(
-                (accumulator: number, currentItem: any) =>
+                (accumulator: number, currentItem: CartItemModel) =>
                   accumulator + currentItem.details.pricePerDay,
                 initialCartTotal
               )}

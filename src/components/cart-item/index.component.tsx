@@ -2,23 +2,11 @@ import { FC } from 'react'
 
 import Divider from '../divider/index.component';
 import Button from '../button/index.component';
+import CartItemModel from '../../models/cart-item';
 
 interface CartItemProps {
   className: string;
-  item: {
-    id: string;
-    src: string;
-    alt: string;
-    className?: string;
-    caption: string;
-    details: {
-      category: string;
-      mileage: string;
-      fuelType: string;
-      seats: string;
-      pricePerDay: number;
-    };
-  };
+  item: CartItemModel;
   onClick: (e: Event) => void;
 }
 
