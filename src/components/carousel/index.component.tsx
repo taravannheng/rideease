@@ -20,7 +20,7 @@ interface CarouselProps {
       mileage: string;
       fuelType: string;
       seats: string;
-      pricePerDay: string;
+      pricePerDay: number;
     };
   }[];
 }
@@ -45,8 +45,8 @@ const Carousel: FC<CarouselProps> = ({ items }) => {
   };
 
   const cartHandler = () => {
-    if (cartState.find((item: any) => item === items[activeItem])) {
-      setCartState(cartState.filter((item: any) => item !== items[activeItem]));
+    if (cartState.find((item: any) => item.id === items[activeItem].id)) {
+      setCartState(cartState.filter((item: any) => item.id !== items[activeItem].id));
       return ;
     }
 
@@ -122,7 +122,7 @@ const Carousel: FC<CarouselProps> = ({ items }) => {
             type="button"
             onClick={cartHandler}
           >
-            {cartState.find((item: any) => item === items[activeItem]) ? 'Added to Cart' : 'Book Now'}
+            {cartState.find((item: any) => item.id === items[activeItem].id) ? 'Added to Cart' : 'Book Now'}
           </Button>
         </div>
       )}

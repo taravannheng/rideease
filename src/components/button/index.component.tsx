@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 interface ButtonProps {
+  id?: string,
   type: "button" | "submit";
   buttonStyle: "primary" | "secondary" | "text";
   className?: string;
@@ -8,10 +9,11 @@ interface ButtonProps {
   imageSource?: string;
   route?: string;
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (e: any) => void;
 }
 
 const Button: FC<ButtonProps> = ({
+  id,
   type,
   buttonStyle,
   children,
@@ -43,6 +45,7 @@ const Button: FC<ButtonProps> = ({
       {route && (
         <Link to={route}>
           <button
+            id={id}
             type={type}
             disabled={disabled}
             className={`${appearance} text-body  border-none container cursor-pointer transition min-w-full flex flex-row justify-center items-center py-3 px-3 ${className}`}
@@ -61,6 +64,7 @@ const Button: FC<ButtonProps> = ({
 
       {!route && (
         <button
+          id={id}
           type={type}
           onClick={onClick}
           disabled={disabled}

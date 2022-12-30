@@ -19,7 +19,7 @@ const items = [
       mileage: '86,000 kms',
       fuelType: 'Petrol',
       seats: '5',
-      pricePerDay: '$120',
+      pricePerDay: 120,
     }
   },
   {
@@ -32,7 +32,7 @@ const items = [
       mileage: '80,000 kms',
       fuelType: 'Electric',
       seats: '4',
-      pricePerDay: '$140',
+      pricePerDay: 140,
     }
   },
   {
@@ -45,7 +45,7 @@ const items = [
       mileage: '120,000 kms',
       fuelType: 'Gasoline',
       seats: '2',
-      pricePerDay: '$320',
+      pricePerDay: 240,
     }
   },
 ]
