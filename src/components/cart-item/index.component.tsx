@@ -36,7 +36,7 @@ const CartItem: FC<CartItemProps> = ({ item, className, onClick }) => {
         <div className='w-full flex flex-row'>
           <p className='basis-1/2 flex justify-center'>${details.pricePerDay!}</p>
           <div className='basis-1/2 flex justify-center'>
-            <Button buttonStyle='text' type='button' id={id} className="hover:text-status-error" onClick={onClick}>Remove</Button>
+            <Button buttonStyle='text' type='button' id={id} className="hover:text-status-error !p-0" onClick={onClick}>Remove</Button>
           </div>
         </div>
         <Divider className='absolute bottom-0 right-0 w-full' />
