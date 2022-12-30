@@ -31,7 +31,7 @@ const CartPage: FC = () => {
 
   return (
     <>
-      <Header type="auth" />
+      <Header type="cart" />
       <main className="cart pt-12">
         <div className="min-w-[8rem] w-32 max-w-lg ml-6 md:ml-12 mb-8">
           <Button
