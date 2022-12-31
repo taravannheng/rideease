@@ -22,4 +22,4 @@ Technologies used for this project:
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" height="16" width="16" /> &nbsp; &nbsp; Firebase (Auth, Firestore, and Storage)
 
-<img src="https://www.vectorlogo.zone/logos/stripe/stripe-ar21.svg" height="16" width="16" /> &nbsp; &nbsp; Stripe
+<img src="https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg" height="16" width="16" /> &nbsp; &nbsp; Stripe
