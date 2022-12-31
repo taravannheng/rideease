@@ -83,10 +83,10 @@ const LandingPage: FC = () => {
         <section className="landing__car-preview flex flex-col items-center w-full mt-20">
           <h2 className="text-h3 lg:text-h2 text-neutral-dark">Car Preview</h2>
           <p className="text-body text-neutral-grey-4">
-            Select from a wide variety of available cars
+            Select from a wide variety of available cars      
           </p>
-          <Carousel items={productState} />          
-        </section>
+          <Carousel items={productState} showDetails={false} showBookButton={false} />
+        </section>  
       </main>
       <Footer className="mt-20" />
     </>
