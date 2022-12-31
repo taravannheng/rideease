@@ -10,6 +10,7 @@ interface CartItemModel {
     fuelType: string;
     seats: number;
     pricePerDay: number;
+    stripeID: string;
   };
 }
 
