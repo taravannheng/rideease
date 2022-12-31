@@ -1,39 +1,40 @@
-import { FC } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { FC, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from '../../utils/constants/routes'
+import { collection, query, getDocs, getFirestore } from "firebase/firestore";
 
 import Header from "../../components/header/index.component";
 import ImgCarLamborghini from "../../assets/images/car-lamborghini.png";
-import ImgCarAudi from "../../assets/images/car-audi.png";
-import ImgCarAudiBlack from "../../assets/images/car-audi-black.png";
 import ImgStripeLogo from "../../assets/logos/sripe.svg";
 import Button from "../../components/button/index.component";
 import Carousel from "../../components/carousel/index.component";
 import Footer from "../../components/footer/index.component";
-
-const items = [
-  {
-    id: uuidv4(),
-    src: ImgCarAudi,
-    alt: 'Audi Car',
-    caption: 'Audi'
-  },
-  {
-    id: uuidv4(),
-    src: ImgCarAudiBlack,
-    alt: 'Audi Car',
-    caption: 'Audi'
-  },
-  {
-    id: uuidv4(),
-    src: ImgCarLamborghini,
-    alt: 'Lamborghini Car',
-    caption: 'Lamborghini'
-  },
-]
+import ProductContext from "../../contexts/product-context";
+import CartItemModel from "../../models/cart-item";
 
 const LandingPage: FC = () => {
+
+  const { productState, setProductState } = useContext(ProductContext);
+
+  // fetch products from firestore
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const db = getFirestore()
+      const q = query(collection(db, "products"));
+      const querySnapshot = await getDocs(q);
+      let products: CartItemModel[] = [];
+
+      querySnapshot.forEach((product: any) => {
+        return products.push(product.data())
+      });
+
+      setProductState(products)
+    }
+
+    fetchProducts();
+  }, []);
+  
+
   return (
     <>
       <Header type="landing" />
@@ -84,7 +85,7 @@ const LandingPage: FC = () => {
           <p className="text-body text-neutral-grey-4">
             Select from a wide variety of available cars
           </p>
-          <Carousel items={items} />          
+          <Carousel items={productState} />          
         </section>
       </main>
       <Footer className="mt-20" />

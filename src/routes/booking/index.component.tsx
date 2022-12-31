@@ -1,61 +1,38 @@
-import { FC } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { FC, useContext, useEffect } from "react";
+import { collection, query, getDocs, getFirestore } from "firebase/firestore";
 
 import Header from "../../components/header/index.component";
 import Carousel from "../../components/carousel/index.component";
 import Footer from "../../components/footer/index.component";
-import ImgCarAudi from '../../assets/images/car-audi.png'
-import ImgCarAudiBlack from '../../assets/images/car-audi-black.png'
-import ImgCarLamborghini from '../../assets/images/car-lamborghini.png'
-
-const items = [
-  {
-    id: uuidv4(),
-    src: ImgCarAudi,
-    alt: 'Audi Car',
-    caption: 'Audi',
-    details: {
-      category: 'Sedan',
-      mileage: '86,000 kms',
-      fuelType: 'Petrol',
-      seats: '5',
-      pricePerDay: 120,
-    }
-  },
-  {
-    id: uuidv4(),
-    src: ImgCarAudiBlack,
-    alt: 'Audi Car',
-    caption: 'Audi',
-    details: {
-      category: 'Sedan',
-      mileage: '80,000 kms',
-      fuelType: 'Electric',
-      seats: '4',
-      pricePerDay: 140,
-    }
-  },
-  {
-    id: uuidv4(),
-    src: ImgCarLamborghini,
-    alt: 'Lamborghini Car',
-    caption: 'Lamborghini',
-    details: {
-      category: 'Sports Car',
-      mileage: '120,000 kms',
-      fuelType: 'Gasoline',
-      seats: '2',
-      pricePerDay: 240,
-    }
-  },
-]
+import ProductContext from "../../contexts/product-context";
+import CartItemModel from "../../models/cart-item";
 
 const BookingPage: FC = () => {
+  const { productState, setProductState } = useContext(ProductContext);
+
+  // fetch products from firestore
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const db = getFirestore()
+      const q = query(collection(db, "products"));
+      const querySnapshot = await getDocs(q);
+      let products: CartItemModel[] = [];
+
+      querySnapshot.forEach((product: any) => {
+        return products.push(product.data())
+      });
+
+      setProductState(products)
+    }
+
+    fetchProducts();
+  }, []);
+
   return (
     <>
       <Header type="cart" />
       <main className="booking">
-        <Carousel items={items} />
+        <Carousel items={productState} />
       </main>
       <Footer className="mt-20" />
     </>

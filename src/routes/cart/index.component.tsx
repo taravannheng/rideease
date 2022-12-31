@@ -1,6 +1,7 @@
 import { FC, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { loadStripe, Stripe } from "@stripe/stripe-js";
 
 import Header from "../../components/header/index.component";
 import CartItem from "../../components/cart-item/index.component";
@@ -10,10 +11,31 @@ import CartContext from "../../contexts/cart-context";
 import * as ROUTES from "../../utils/constants/routes";
 import CartItemModel from "../../models/cart-item";
 
+// Stripe
+let stripePromise: Promise<Stripe | null>;
+const getStripePromise = () => {
+  if (!stripePromise) {
+    stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}`);
+  }
+
+  return stripePromise;
+}
+
 const CartPage: FC = () => {
   const { cartState, setCartState } = useContext(CartContext);
   let initialCartTotal = 0;
   const navigate = useNavigate();
+
+  // STRIPE
+  let itemsToCheckout: {price: string, quantity: number}[] = [];
+  cartState.map((item: CartItemModel) => {
+    return itemsToCheckout.push({price: item.details.stripeID, quantity: 1});
+  });
+  const checkoutOptions: any = { lineItems: itemsToCheckout, mode: 'payment', successUrl: `${window.location.origin}/payment-success`, cancelUrl: `${window.location.origin}/cart` }
+
+  console.log(itemsToCheckout);
+
+  // END STRIPE
 
   const removeItemHandler = (e: Event) => {
     const el = e.target as HTMLButtonElement;
@@ -23,6 +45,11 @@ const CartPage: FC = () => {
       prevCartState.filter((item: CartItemModel) => item.id !== elID)
     );
   };
+
+  const redirectToCheckout = async () => {
+    const stripe = await getStripePromise();
+    console.log(await stripe?.redirectToCheckout(checkoutOptions));
+  }
 
   useEffect(() => {
     if (cartState.length === 0) {
@@ -89,7 +116,7 @@ const CartPage: FC = () => {
           <div className="basis-1/3 flex justify-center">
             <Button
               buttonStyle="primary"
-              route={ROUTES.CHECKOUT}
+              onClick={redirectToCheckout}
               type="button"
               className="min-w-[8rem] w-32 max-w-lg"
             >
