@@ -1,6 +1,6 @@
 interface CartItemModel {
   id: string;
-  src: string;
+  imgSrc: string;
   alt: string;
   className?: string;
   name: string;
