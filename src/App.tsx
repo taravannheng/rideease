@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 import "@stripe/stripe-js";
 
 import LandingPage from "./routes/landing/index.component";
+import PrivateRoute from "./routes/private-route/index.component";
 import * as ROUTES from "./utils/constants/routes";
 import firebaseConfig from "./utils/firebase/firebase-config";
 import { UserContextProvider } from "./contexts/user-context";
@@ -51,22 +52,26 @@ const App: FC = () => {
                   </Suspense>
                 }
               />
-              <Route
-                path={ROUTES.BOOKING}
-                element={
-                  <Suspense fallback={<>...</>}>
-                    <BookingPage />
-                  </Suspense>
-                }
-              />
-              <Route
-                path={ROUTES.CART}
-                element={
-                  <Suspense fallback={<>...</>}>
-                    <CartPage />
-                  </Suspense>
-                }
-              />
+              <Route path={ROUTES.BOOKING} element={<PrivateRoute />}>
+                <Route
+                  path={ROUTES.BOOKING}
+                  element={
+                    <Suspense fallback={<>...</>}>
+                      <BookingPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
+              <Route path={ROUTES.CART} element={<PrivateRoute />}>
+                <Route
+                  path={ROUTES.CART}
+                  element={
+                    <Suspense fallback={<>...</>}>
+                      <CartPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
               <Route
                 path={ROUTES.NOTFOUND}
                 element={
@@ -75,14 +80,16 @@ const App: FC = () => {
                   </Suspense>
                 }
               />
-              <Route
-                path={ROUTES.PAYMENT_SUCCESS}
-                element={
-                  <Suspense fallback={<>...</>}>
-                    <PaymentSuccessPage />
-                  </Suspense>
-                }
-              />
+              <Route path={ROUTES.PAYMENT_SUCCESS} element={<PrivateRoute />}>
+                <Route
+                  path={ROUTES.PAYMENT_SUCCESS}
+                  element={
+                    <Suspense fallback={<>...</>}>
+                      <PaymentSuccessPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
             </Routes>
           </Router>
         </CartContextProvider>
