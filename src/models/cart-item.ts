@@ -3,12 +3,12 @@ interface CartItemModel {
   src: string;
   alt: string;
   className?: string;
-  caption: string;
+  name: string;
   details: {
     category: string;
-    mileage: string;
+    mileage: number;
     fuelType: string;
-    seats: string;
+    seats: number;
     pricePerDay: number;
   };
 }
