@@ -93,7 +93,7 @@ const Carousel: FC<CarouselProps> = ({ items, showDetails = true, showBookButton
                   </div>
                   <div className="flex flex-row gap-x-12 justify-between w-full md:w-auto items-center md:flex-col md:items-center md:justify-center">
                     <p className="text-neutral-grey-4 text-sub1">Mileage</p>
-                    <p className="text-neutral-dark">{item.details.mileage}</p>
+                    <p className="text-neutral-dark">{item.details.mileage.toLocaleString()} kms</p>
                   </div>
                   <div className="flex flex-row gap-x-12 justify-between w-full md:w-auto items-center md:flex-col md:items-center md:justify-center">
                     <p className="text-neutral-grey-4 text-sub1">Fuel Type</p>
@@ -108,7 +108,7 @@ const Carousel: FC<CarouselProps> = ({ items, showDetails = true, showBookButton
                       Price Per Day
                     </p>
                     <p className="text-neutral-dark">
-                      {item.details.pricePerDay}
+                      ${item.details.pricePerDay}
                     </p>
                   </div>
                 </div>
