@@ -11,13 +11,13 @@ interface CartItemProps {
 }
 
 const CartItem: FC<CartItemProps> = ({ item, className, onClick }) => {
-  const { id, src, alt, caption, details } = item;
+  const { id, imgSrc, alt, details } = item;
 
   return (
     <li key={id} className={` w-full flex flex-row justify-between items-center ${className} min-h-[52px] md:min-h-[100px]`}>
       <div className=' basis-1/3 min-h-[52px] md:min-h-[100px]'>
         <div className='w-full flex justify-center'>
-          <img src={src} alt={alt} className="h-[52px] md:h-[100px]" />
+          <img src={imgSrc} alt={alt} className="h-[52px] md:h-[100px]" />
         </div>
       </div>
       <div className='basis-2/3 flex relative min-h-[52px] md:min-h-[100px] items-center'>

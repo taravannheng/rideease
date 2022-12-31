@@ -10,20 +10,7 @@ import CartContext from "../../contexts/cart-context";
 import CartItemModel from "../../models/cart-item";
 
 interface CarouselProps {
-  items: {
-    id: string;
-    src: string;
-    alt: string;
-    className?: string;
-    caption: string;
-    details?: {
-      category: string;
-      mileage: string;
-      fuelType: string;
-      seats: string;
-      pricePerDay: number;
-    };
-  }[];
+  items: CartItemModel[];
 }
 
 const Carousel: FC<CarouselProps> = ({ items }) => {
@@ -78,12 +65,12 @@ const Carousel: FC<CarouselProps> = ({ items }) => {
           >
             <figure>
               <img
-                src={item.src}
+                src={item.imgSrc}
                 alt={item.alt}
                 className={`max-h-60 lg:h-96 lg:max-h-96 ${item.className}`}
               />
               <figcaption className="text-center text-neutral-grey-4">
-                {item.caption}
+                {item.name}
               </figcaption>
             </figure>
             {item?.details && (
