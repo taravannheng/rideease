@@ -50,6 +50,7 @@ const CartPage: FC = () => {
 
   const redirectToCheckout = async () => {
     const stripe = await getStripePromise();
+    localStorage.setItem('ls-redirected-to-checkout', JSON.stringify(true));
     await stripe?.redirectToCheckout(checkoutOptions)
   }
 

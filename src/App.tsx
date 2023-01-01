@@ -7,6 +7,7 @@ import LandingPage from "./routes/landing/index.component";
 import PrivateAuthRoute from "./routes/private-auth/index.component";
 import PrivateBookingRoute from "./routes/private-booking/index.component";
 import PrivateCartRoute from "./routes/private-cart/index.component";
+import PrivatePaymentSuccessRoute from './routes/private-payment-success/index.component'
 import * as ROUTES from "./utils/constants/routes";
 import firebaseConfig from "./utils/firebase/firebase-config";
 import { UserContextProvider } from "./contexts/user-context";
@@ -86,14 +87,16 @@ const App: FC = () => {
                   </Suspense>
                 }
               />
-              <Route
-                path={ROUTES.PAYMENT_SUCCESS}
-                element={
-                  <Suspense fallback={<>...</>}>
-                    <PaymentSuccessPage />
-                  </Suspense>
-                }
-              />
+              <Route path={ROUTES.PAYMENT_SUCCESS} element={<PrivatePaymentSuccessRoute />}>
+                <Route
+                  path={ROUTES.PAYMENT_SUCCESS}
+                  element={
+                    <Suspense fallback={<>...</>}>
+                      <PaymentSuccessPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
             </Routes>
           </Router>
         </CartContextProvider>
