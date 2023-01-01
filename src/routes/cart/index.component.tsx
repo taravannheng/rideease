@@ -22,9 +22,12 @@ const getStripePromise = () => {
 }
 
 const CartPage: FC = () => {
-  const { cartState, setCartState } = useContext(CartContext);
   let initialCartTotal = 0;
   const navigate = useNavigate();
+  const lsCartState = localStorage.getItem('ls-cart-state')
+
+  // CONTEXTS
+  const { cartState, setCartState } = useContext(CartContext);
 
   // STRIPE
   let itemsToCheckout: {price: string, quantity: number}[] = [];
@@ -33,29 +36,34 @@ const CartPage: FC = () => {
   });
   const checkoutOptions: any = { lineItems: itemsToCheckout, mode: 'payment', successUrl: `${window.location.origin}/payment-success`, cancelUrl: `${window.location.origin}/cart` }
 
-  console.log(itemsToCheckout);
-
   // END STRIPE
 
   const removeItemHandler = (e: Event) => {
     const el = e.target as HTMLButtonElement;
     const elID = el.id;
+    const filteredCart = cartState.filter((item: CartItemModel) => item.id !== elID);
 
-    setCartState((prevCartState: CartItemModel[]) =>
-      prevCartState.filter((item: CartItemModel) => item.id !== elID)
-    );
+    setCartState(filteredCart);
+
+    localStorage.setItem('ls-cart-state', JSON.stringify(filteredCart))
   };
 
   const redirectToCheckout = async () => {
     const stripe = await getStripePromise();
-    console.log(await stripe?.redirectToCheckout(checkoutOptions));
+    await stripe?.redirectToCheckout(checkoutOptions)
   }
 
   useEffect(() => {
-    if (cartState.length === 0) {
+    if (cartState.length === 0 && JSON.parse(lsCartState!).length === 0) {
       navigate(ROUTES.BOOKING);
     }
   }, [cartState]);
+
+  useEffect(() => {
+    if (lsCartState) {
+      setCartState(JSON.parse(lsCartState));
+    }
+  }, []);
 
   return (
     <>
