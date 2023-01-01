@@ -52,8 +52,7 @@ const App: FC = () => {
                   </Suspense>
                 }
               />
-              <Route path={ROUTES.BOOKING} element={<PrivateRoute />}>
-                <Route
+              <Route
                   path={ROUTES.BOOKING}
                   element={
                     <Suspense fallback={<>...</>}>
@@ -61,9 +60,7 @@ const App: FC = () => {
                     </Suspense>
                   }
                 />
-              </Route>
-              <Route path={ROUTES.CART} element={<PrivateRoute />}>
-                <Route
+              <Route
                   path={ROUTES.CART}
                   element={
                     <Suspense fallback={<>...</>}>
@@ -71,7 +68,6 @@ const App: FC = () => {
                     </Suspense>
                   }
                 />
-              </Route>
               <Route
                 path={ROUTES.NOTFOUND}
                 element={
@@ -80,7 +76,6 @@ const App: FC = () => {
                   </Suspense>
                 }
               />
-              <Route path={ROUTES.PAYMENT_SUCCESS} element={<PrivateRoute />}>
                 <Route
                   path={ROUTES.PAYMENT_SUCCESS}
                   element={
@@ -89,7 +84,6 @@ const App: FC = () => {
                     </Suspense>
                   }
                 />
-              </Route>
             </Routes>
           </Router>
         </CartContextProvider>
