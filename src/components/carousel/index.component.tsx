@@ -20,8 +20,6 @@ const Carousel: FC<CarouselProps> = ({
   showDetails = true,
   showBookButton = true,
 }) => {
-  const lsCartState = localStorage.getItem('ls-cart-state');
-
   // CONTEXTS
   const { cartState, setCartState } = useContext(CartContext);
 
@@ -66,7 +64,10 @@ const Carousel: FC<CarouselProps> = ({
   };
 
   useEffect(() => {
-    setCartState(JSON.parse(lsCartState!));
+    const lsCartState = localStorage.getItem('ls-cart-state');
+    if (lsCartState) {
+      setCartState(JSON.parse(lsCartState!));
+    }
   },[]);
 
   return (
@@ -141,7 +142,7 @@ const Carousel: FC<CarouselProps> = ({
             onClick={cartHandler}
           >
             {cartState.find(
-              (item: CartItemModel) => item.id === items[activeItem].id
+              (item: CartItemModel) => item.id === JSON.parse(localStorage.getItem('ls-product-state')!)[activeItem].id
             )
               ? "Added to Cart"
               : "Book Now"}
