@@ -19,19 +19,28 @@ const LandingPage: FC = () => {
   useEffect(() => {
     // fetch products from firestore
     const fetchProducts = async () => {
-      const db = getFirestore()
-      const q = query(collection(db, "products"));
-      const querySnapshot = await getDocs(q);
-      let products: CartItemModel[] = [];
+      // get products from local storage
+      const lsProductState = localStorage.getItem('ls-product-state');
 
-      querySnapshot.forEach((product: any) => {
-        return products.push(product.data())
-      });
+      if (!lsProductState) {
+        const db = getFirestore()
+        const q = query(collection(db, "products"));
+        const querySnapshot = await getDocs(q);
+        let products: CartItemModel[] = [];
+  
+        querySnapshot.forEach((product: any) => {
+          return products.push(product.data())
+        });
+  
+        setProductState(products)
+  
+        // set data to local storage
+        localStorage.setItem('ls-product-state', JSON.stringify(products));
 
-      setProductState(products)
+        return;
+      }
 
-      // set data to local storage
-    localStorage.setItem('ls-product-state', JSON.stringify(products));
+      setProductState(JSON.parse(lsProductState));
     }
 
     fetchProducts();
