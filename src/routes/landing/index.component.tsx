@@ -16,8 +16,8 @@ const LandingPage: FC = () => {
 
   const { productState, setProductState } = useContext(ProductContext);
 
-  // fetch products from firestore
   useEffect(() => {
+    // fetch products from firestore
     const fetchProducts = async () => {
       const db = getFirestore()
       const q = query(collection(db, "products"));
@@ -29,6 +29,9 @@ const LandingPage: FC = () => {
       });
 
       setProductState(products)
+
+      // set data to local storage
+    localStorage.setItem('ls-product-state', JSON.stringify(products));
     }
 
     fetchProducts();
