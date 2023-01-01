@@ -135,6 +135,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
         authState.password.value
       );
       setUserState(result);
+      localStorage.setItem('ls-user-state', JSON.stringify(result));
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
@@ -170,6 +171,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
         authState.password.value
       );
       setUserState(result);
+      localStorage.setItem('ls-user-state', JSON.stringify(result));
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
