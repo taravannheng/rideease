@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,6 +8,12 @@ import Footer from "../../components/footer/index.component";
 import * as ROUTES from "../../utils/constants/routes";
 
 const PaymentSuccessPage: FC = () => {
+  useEffect(() => {
+    // remove local storage
+    localStorage.removeItem('ls-redirected-to-checkout');
+    localStorage.removeItem('ls-cart-state');
+  }, []);
+
   return (
     <div className="relative min-h-screen">
       <Header type="cart" />
