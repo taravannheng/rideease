@@ -5,6 +5,7 @@ import "@stripe/stripe-js";
 
 import LandingPage from "./routes/landing/index.component";
 import PrivateAuthRoute from "./routes/private-auth/index.component";
+import PrivateBookingRoute from "./routes/private-booking/index.component";
 import * as ROUTES from "./utils/constants/routes";
 import firebaseConfig from "./utils/firebase/firebase-config";
 import { UserContextProvider } from "./contexts/user-context";
@@ -56,14 +57,16 @@ const App: FC = () => {
                   }
                 />
               </Route>
-              <Route
-                  path={ROUTES.BOOKING}
-                  element={
-                    <Suspense fallback={<>...</>}>
-                      <BookingPage />
-                    </Suspense>
-                  }
-                />
+              <Route path={ROUTES.BOOKING} element={<PrivateBookingRoute />}>
+                <Route
+                    path={ROUTES.BOOKING}
+                    element={
+                      <Suspense fallback={<>...</>}>
+                        <BookingPage />
+                      </Suspense>
+                    }
+                  />
+              </Route>
               <Route
                   path={ROUTES.CART}
                   element={
