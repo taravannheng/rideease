@@ -48,7 +48,7 @@ const LandingPage: FC = () => {
   
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Header type="landing" />
       <main className="landing pt-10 flex flex-col items-center">
         <section className="landing__hero flex flex-col items-center">
@@ -101,7 +101,7 @@ const LandingPage: FC = () => {
         </section>  
       </main>
       <Footer className="mt-20" />
-    </>
+    </div>
   );
 };
 
