@@ -8,17 +8,6 @@ import * as ROUTES from '../../utils/constants/routes'
 import UserContext from '../../contexts/user-context'
 
 const SignUpPage: FC = () => {
-  const { userState } = useContext(UserContext);
-  const lsUserState = localStorage.getItem('ls-user-state');
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (userState || lsUserState) {
-      navigate(ROUTES.BOOKING);
-    }
-  }, []);
-
   return (
     <>
       <Header type='auth' />

@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 import "@stripe/stripe-js";
 
 import LandingPage from "./routes/landing/index.component";
-import PrivateRoute from "./routes/private-route/index.component";
+import PrivateAuthRoute from "./routes/private-auth/index.component";
 import * as ROUTES from "./utils/constants/routes";
 import firebaseConfig from "./utils/firebase/firebase-config";
 import { UserContextProvider } from "./contexts/user-context";
@@ -36,22 +36,26 @@ const App: FC = () => {
           <Router>
             <Routes>
               <Route path={ROUTES.HOME} element={<LandingPage />} />
-              <Route
-                path={ROUTES.SIGNUP}
-                element={
-                  <Suspense fallback={<>...</>}>
-                    <SignUpPage />
-                  </Suspense>
-                }
-              />
-              <Route
-                path={ROUTES.SIGNIN}
-                element={
-                  <Suspense fallback={<>...</>}>
-                    <SignInPage />
-                  </Suspense>
-                }
-              />
+              <Route path={ROUTES.SIGNUP} element={<PrivateAuthRoute />}>
+                <Route
+                  path={ROUTES.SIGNUP}
+                  element={
+                    <Suspense fallback={<>...</>}>
+                      <SignUpPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
+              <Route path={ROUTES.SIGNIN} element={<PrivateAuthRoute />}>
+                <Route
+                  path={ROUTES.SIGNIN}
+                  element={
+                    <Suspense fallback={<>...</>}>
+                      <SignInPage />
+                    </Suspense>
+                  }
+                />
+              </Route>
               <Route
                   path={ROUTES.BOOKING}
                   element={
