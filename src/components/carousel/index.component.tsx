@@ -96,7 +96,7 @@ const Carousel: FC<CarouselProps> = ({
               <img
                 src={item.imgSrc}
                 alt={item.alt}
-                className={`max-h-60 lg:h-96 lg:max-h-96 ${item.className}`}
+                className={`max-h-60 lg:h-96 lg:max-h-96 pointer-events-none select-none ${item.className}`}
               />
               <figcaption className="text-center text-neutral-grey-4">
                 {item.name}
