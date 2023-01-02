@@ -13,6 +13,7 @@ import firebaseConfig from "./utils/firebase/firebase-config";
 import { UserContextProvider } from "./contexts/user-context";
 import { CartContextProvider } from "./contexts/cart-context";
 import { ProductContextProvider } from "./contexts/product-context";
+import ProgressIndicator from "./components/progress-indicator/index.component";
 
 // LAZY LOADING
 const SignUpPage = React.lazy(() => import("./routes/signup/index.component"));
@@ -43,7 +44,7 @@ const App: FC = () => {
                 <Route
                   path={ROUTES.SIGNUP}
                   element={
-                    <Suspense fallback={<>...</>}>
+                    <Suspense fallback={<ProgressIndicator />}>
                       <SignUpPage />
                     </Suspense>
                   }
@@ -53,7 +54,7 @@ const App: FC = () => {
                 <Route
                   path={ROUTES.SIGNIN}
                   element={
-                    <Suspense fallback={<>...</>}>
+                    <Suspense fallback={<ProgressIndicator />}>
                       <SignInPage />
                     </Suspense>
                   }
@@ -63,7 +64,7 @@ const App: FC = () => {
                 <Route
                   path={ROUTES.BOOKING}
                   element={
-                    <Suspense fallback={<>...</>}>
+                    <Suspense fallback={<ProgressIndicator />}>
                       <BookingPage />
                     </Suspense>
                   }
@@ -73,7 +74,7 @@ const App: FC = () => {
                 <Route
                   path={ROUTES.CART}
                   element={
-                    <Suspense fallback={<>...</>}>
+                    <Suspense fallback={<ProgressIndicator />}>
                       <CartPage />
                     </Suspense>
                   }
@@ -82,7 +83,7 @@ const App: FC = () => {
               <Route
                 path={ROUTES.NOTFOUND}
                 element={
-                  <Suspense fallback={<>...</>}>
+                  <Suspense fallback={<ProgressIndicator />}>
                     <NotFoundPage />
                   </Suspense>
                 }
@@ -91,7 +92,7 @@ const App: FC = () => {
                 <Route
                   path={ROUTES.PAYMENT_SUCCESS}
                   element={
-                    <Suspense fallback={<>...</>}>
+                    <Suspense fallback={<ProgressIndicator />}>
                       <PaymentSuccessPage />
                     </Suspense>
                   }
