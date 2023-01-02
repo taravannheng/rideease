@@ -144,7 +144,7 @@ const Carousel: FC<CarouselProps> = ({
       {showBookButton && (
         <div className="booking__book-button flex items-center justify-center mt-8 sm:mt-16">
           <Button
-            className="min-w-[6rem] w-24 max-w-lg py-2 sm:py-3 sm:min-w-[8rem] sm:w-32 sm:max-w-lg"
+            className="min-w-[7rem] w-24 max-w-lg py-2 sm:py-3 sm:min-w-[8rem] sm:w-32 sm:max-w-lg"
             buttonStyle="primary"
             type="button"
             onClick={cartHandler}
