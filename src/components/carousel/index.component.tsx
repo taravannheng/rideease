@@ -108,7 +108,7 @@ const Carousel: FC<CarouselProps> = ({
                 </figcaption>
               </figure>
               {showDetails && (
-                <div className="bg-neutral-grey-1 flex w-[340px] items-start flex-row md:w-[560px] md:p-8 p-4 justify-between items-center mt-8">
+                <div className="bg-neutral-grey-1 flex w-[340px] items-start flex-row md:w-[560px] md:p-8 p-4 justify-between items-center mt-4 sm:mt-8">
                   <div className="flex w-full w-auto flex-col items-center justify-center">
                     <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Category</p>
                     <p className="text-neutral-dark text-sub1 md:text-body">{item.details.category}</p>
@@ -142,9 +142,9 @@ const Carousel: FC<CarouselProps> = ({
         </motion.ul>
       </AnimatePresence>
       {showBookButton && (
-        <div className="booking__book-button flex items-center justify-center mt-16">
+        <div className="booking__book-button flex items-center justify-center mt-8 sm:mt-16">
           <Button
-            className="min-w-[8rem] w-32 max-w-lg"
+            className="min-w-[6rem] w-24 max-w-lg py-2 sm:py-3 sm:min-w-[8rem] sm:w-32 sm:max-w-lg"
             buttonStyle="primary"
             type="button"
             onClick={cartHandler}
