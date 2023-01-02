@@ -55,7 +55,7 @@ const Input: FC<InputProps> = ({
               isValid === false
                 ? "text-status-error"
                 : "text-neutral-dark"
-            } w-full h-10 bg-neutral-grey-1 text-neutral-dark outline-none px-4 text-body border-primary focus:border-2 z-10 relative`}
+            } w-full h-10 bg-neutral-grey-1 text-neutral-dark outline-none px-4 text-[16px] border-primary focus:border-2 z-10 relative`}
             required={required}
           />
           <p className={`input__error-message text-status-error text-body absolute top-0 right-0 transition ${isValid === false && '-translate-y-6'}`}>{errorMessage}</p>
