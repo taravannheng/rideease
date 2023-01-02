@@ -76,12 +76,12 @@ const Carousel: FC<CarouselProps> = ({
       <div
         className={`${
           activeItem === 0 && "hidden"
-        } carousel__left-icon w-10 h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full left-5 sm:left-10 lg:left-40 top-28 lg:top-48 z-10`}
+        } carousel__left-icon w-8 h-8 sm:w-10 sm:h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full left-5 sm:left-10 lg:left-24 xl:left-40 top-20 sm:top-28 lg:top-48 z-10`}
         onClick={carouselLeftIconHandler}
       >
         <FontAwesomeIcon
           icon={faChevronLeft}
-          className="w-5 h-5 text-neutral-dark cursor-pointer hover:text-primary"
+          className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-dark cursor-pointer hover:text-primary"
         />
       </div>
       <AnimatePresence>
@@ -101,7 +101,7 @@ const Carousel: FC<CarouselProps> = ({
                 <img
                   src={item.imgSrc}
                   alt={item.alt}
-                  className={`max-h-60 lg:h-96 lg:max-h-96 pointer-events-none select-none ${item.className}`}
+                  className={`h-32 sm:h-48 max-h-60 lg:h-96 lg:max-h-96 pointer-events-none select-none ${item.className}`}
                 />
                 <figcaption className="text-center text-neutral-grey-4">
                   {item.name}
@@ -164,12 +164,12 @@ const Carousel: FC<CarouselProps> = ({
       <div
         className={`${
           activeItem === items.length - 1 && "hidden"
-        } carousel__right-icon w-10 h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full right-5 sm:right-10 lg:right-40 top-28 lg:top-48 z-10`}
+        } carousel__right-icon w-8 h-8 sm:w-10 sm:h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full right-5 sm:right-10 lg:right-24 xl:right-40 top-20 sm:top-28 lg:top-48 z-10`}
         onClick={carouselRightIconHandler}
       >
         <FontAwesomeIcon
           icon={faChevronRight}
-          className="w-5 h-5 text-neutral-dark cursor-pointer hover:text-primary"
+          className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-dark cursor-pointer hover:text-primary"
         />
       </div>
     </div>
