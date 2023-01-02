@@ -76,7 +76,7 @@ const Carousel: FC<CarouselProps> = ({
       <div
         className={`${
           activeItem === 0 && "hidden"
-        } carousel__left-icon w-8 h-8 sm:w-10 sm:h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full left-5 sm:left-10 lg:left-24 xl:left-40 top-20 sm:top-28 lg:top-48 z-10`}
+        } carousel__left-icon w-8 h-8 sm:w-10 sm:h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full left-5 sm:left-10 lg:left-24 xl:left-40 ${showDetails ? 'top-12 sm:top-20 lg:top-40' : 'top-20 sm:top-28 lg:top-48'} z-10`}
         onClick={carouselLeftIconHandler}
       >
         <FontAwesomeIcon
@@ -108,30 +108,30 @@ const Carousel: FC<CarouselProps> = ({
                 </figcaption>
               </figure>
               {showDetails && (
-                <div className="bg-neutral-grey-1 flex flex-col w-2/3 gap-y-2 md:gap-y-0 items-start md:flex-row md:w-[560px] p-4 md:p-8 md:justify-between md:items-center mt-8">
-                  <div className="flex flex-row gap-x-12 justify-between w-full md:w-auto items-center md:flex-col md:items-center md:justify-center">
-                    <p className="text-neutral-grey-4 text-sub1">Category</p>
-                    <p className="text-neutral-dark">{item.details.category}</p>
+                <div className="bg-neutral-grey-1 flex w-[340px] items-start flex-row md:w-[560px] md:p-8 p-4 justify-between items-center mt-8">
+                  <div className="flex w-full w-auto flex-col items-center justify-center">
+                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Category</p>
+                    <p className="text-neutral-dark text-sub1 md:text-body">{item.details.category}</p>
                   </div>
-                  <div className="flex flex-row gap-x-12 justify-between w-full md:w-auto items-center md:flex-col md:items-center md:justify-center">
-                    <p className="text-neutral-grey-4 text-sub1">Mileage</p>
-                    <p className="text-neutral-dark">
+                  <div className="flex w-full w-auto flex-col items-center justify-center">
+                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Mileage</p>
+                    <p className="text-neutral-dark text-sub1 md:text-body">
                       {item.details.mileage.toLocaleString()} kms
                     </p>
                   </div>
-                  <div className="flex flex-row gap-x-12 justify-between w-full md:w-auto items-center md:flex-col md:items-center md:justify-center">
-                    <p className="text-neutral-grey-4 text-sub1">Fuel Type</p>
-                    <p className="text-neutral-dark">{item.details.fuelType}</p>
+                  <div className="flex w-full w-auto flex-col items-center justify-center">
+                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Fuel Type</p>
+                    <p className="text-neutral-dark text-sub1 md:text-body">{item.details.fuelType}</p>
                   </div>
-                  <div className="flex flex-row gap-x-12 justify-between w-full md:w-auto items-center md:flex-col md:items-center md:justify-center">
-                    <p className="text-neutral-grey-4 text-sub1">Seats</p>
-                    <p className="text-neutral-dark">{item.details.seats}</p>
+                  <div className="flex w-full w-auto flex-col items-center justify-center">
+                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Seats</p>
+                    <p className="text-neutral-dark text-sub1 md:text-body">{item.details.seats}</p>
                   </div>
-                  <div className="flex flex-row gap-x-12 justify-between w-full md:w-auto items-center md:flex-col md:items-center md:justify-center">
-                    <p className="text-neutral-grey-4 text-sub1">
+                  <div className="flex w-full w-auto flex-col items-center justify-center">
+                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">
                       Price Per Day
                     </p>
-                    <p className="text-neutral-dark">
+                    <p className="text-neutral-dark text-sub1 md:text-body">
                       ${item.details.pricePerDay}
                     </p>
                   </div>
@@ -164,7 +164,7 @@ const Carousel: FC<CarouselProps> = ({
       <div
         className={`${
           activeItem === items.length - 1 && "hidden"
-        } carousel__right-icon w-8 h-8 sm:w-10 sm:h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full right-5 sm:right-10 lg:right-24 xl:right-40 top-20 sm:top-28 lg:top-48 z-10`}
+        } carousel__right-icon w-8 h-8 sm:w-10 sm:h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full right-5 sm:right-10 lg:right-24 xl:right-40 ${showDetails ? 'top-12 sm:top-20 lg:top-40' : 'top-20 sm:top-28 lg:top-48'} z-10`}
         onClick={carouselRightIconHandler}
       >
         <FontAwesomeIcon
