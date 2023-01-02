@@ -211,7 +211,8 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
       const credential = await GoogleAuthProvider.credentialFromResult(result);
       // const token = credential.accessToken;
       const user = result.user;
-      setUserState(result);
+      setUserState(credential);
+      localStorage.setItem('ls-user-state', JSON.stringify(credential));
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
