@@ -11,7 +11,7 @@ const PrivateCartRoute: FC = () => {
   const lsUserState = localStorage.getItem('ls-user-state');
   const lsCartState = localStorage.getItem('ls-cart-state');
 
-  return ((userState || lsUserState) && (cartState.length > 0 || JSON.parse(lsCartState!).length > 0) ) ? <Outlet /> : <Navigate to={ROUTES.SIGNIN} />;
+  return ((userState || lsUserState) && (cartState?.length > 0 || JSON.parse(lsCartState!)?.length > 0) ) ? <Outlet /> : <Navigate to={ROUTES.SIGNIN} />;
 };
 
 export default PrivateCartRoute;
