@@ -20,12 +20,12 @@ const Header: FC<HeaderProps> = ({ type }) => {
   };
 
   return (
-    <header className="w-full bg-neutral-grey-1 h-20 px-10 flex justify-between items-center">
+    <header className="w-full bg-neutral-grey-1 h-12 sm:h-20 px-4 sm:px-10 flex justify-between items-center">
       <Link to={ROUTES.HOME} className={`${type === "auth" && "m-auto"}`}>
         <img
           src={Logo}
           alt="logo"
-          className="h-10 xl:h-12"
+          className="h-8 sm:h-10 xl:h-12"
         />
       </Link>
 
@@ -46,7 +46,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
           </nav>
           <FontAwesomeIcon
             icon={faBars}
-            className="w-6 h-6 text-neutral-dark xl:hidden cursor-pointer"
+            className="w-5 h-5 text-neutral-dark xl:hidden cursor-pointer"
             onClick={showMobileNavToggler}
           />
           <nav
@@ -66,7 +66,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
             </Link>
             <FontAwesomeIcon
               icon={faXmark}
-              className="w-6 h-6 cursor-pointer text-neutral-dark absolute top-7 right-10"
+              className="w-5 h-5 cursor-pointer text-neutral-dark absolute top-4 right-4"
               onClick={showMobileNavToggler}
             />
           </nav>
