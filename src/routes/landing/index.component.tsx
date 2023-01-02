@@ -62,7 +62,7 @@ const LandingPage: FC = () => {
             <motion.div initial={{ translateY: -50 }} animate={{ translateY: 0 }} transition={{ duration: 0.5 }}>
               <Header type="landing" />
             </motion.div>
-            <main className="landing pt-10 flex flex-col items-center">
+            <main className="landing pt-16 md:pt-24 flex flex-col items-center">
               <section className="landing__hero flex flex-col items-center">
                 <img
                   src={ImgCarLamborghini}
@@ -87,7 +87,7 @@ const LandingPage: FC = () => {
                   </Link>
                 </div>
               </section>
-              <section className="landing__payment w-full flex flex-row justify-center items-center bg-neutral-grey-1 py-10 mt-20">
+              <section className="landing__payment w-full flex flex-row justify-center items-center bg-neutral-grey-1 py-10 mt-20 md:mt-40">
                 <div className="landing__payment-logo-container basis-1/2 flex justify-end">
                   <img
                     src={ImgStripeLogo}
@@ -105,7 +105,7 @@ const LandingPage: FC = () => {
                   </p>
                 </div>
               </section>
-              <section className="landing__car-preview flex flex-col items-center w-full mt-20">
+              <section className="landing__car-preview flex flex-col items-center w-full mt-20 md:mt-40">
                 <h2 className="text-h3 lg:text-h2 text-neutral-dark">
                   Car Preview
                 </h2>
@@ -119,7 +119,7 @@ const LandingPage: FC = () => {
                 />
               </section>
             </main>
-            <Footer className="mt-20" />
+            <Footer className="mt-20 md:mt-40" />
           </motion.div>
         </AnimatePresence>
       )}
