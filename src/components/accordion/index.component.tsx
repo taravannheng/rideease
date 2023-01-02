@@ -36,7 +36,7 @@ const Accordion: FC<AccordionProps> = ({ items, className }) => {
         >
           <h4
             onClick={() => toggle(index)}
-            className="text-h4 text-neutral-dark hover:text-primary flex flex-row justify-between items-center mb-2"
+            className="text-body font-medium sm:text-h4 text-neutral-dark hover:text-primary flex flex-row justify-between items-center mb-2"
           >
             {item.title}{" "}
             <FontAwesomeIcon
@@ -44,7 +44,7 @@ const Accordion: FC<AccordionProps> = ({ items, className }) => {
             />
           </h4>
           {item.innerItems.map((innerItem) => (
-            <p key={uuidv4()} className="text-body text-neutral-grey-4 mt-2">
+            <p key={uuidv4()} className="text-sub1 sm:text-body text-neutral-grey-4 mt-2">
               {innerItem}
             </p>
           ))}

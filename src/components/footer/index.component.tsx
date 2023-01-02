@@ -31,13 +31,13 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({ className = '' }) => {
   return (
-    <footer className={`footer bg-neutral-grey-1 p-10 flex flex-col ${className}`}>
+    <footer className={`footer bg-neutral-grey-1 p-4 sm:p-10 flex flex-col ${className}`}>
       <div className="flex flex-col gap-y-8 md:flex-row md:justify-between">
         <div className="footer__left-section md:basis-1/4">
           <Link to={ROUTES.HOME}>
-            <img src={Logo} alt="Logo" className="h-10 mb-4" />
+            <img src={Logo} alt="Logo" className="h-8 sm:h-10 xl:h-12 mb-4" />
           </Link>
-          <p className="text-neutral-grey-4 text-body text-left">
+          <p className="text-neutral-grey-4 text-sub1 sm:text-body text-left">
             15 Broadway, Ultimo NSW <br />
             2007 Australia
           </p>
@@ -82,7 +82,7 @@ const Footer: FC<FooterProps> = ({ className = '' }) => {
           </nav>
         </div>
       </div>
-      <p className="footer__copyright mt-20 text-neutral-grey-4 text-body text-center">
+      <p className="footer__copyright mt-20 text-neutral-grey-4 text-sub1 sm:text-body text-center">
         All Rights Reserved · {currentYear}
       </p>
     </footer>
