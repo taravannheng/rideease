@@ -25,37 +25,37 @@ const NotFoundPage: FC = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="relative min-h-screen"
+          className="min-h-screen flex flex-col"
         >
           <Header type="auth" />
-          <main className="not-found mt-8 sm:20">
+          <main className="not-found mt-12 mb-24 sm:mt-20">
             <div className="flex flex-row justify-center items-center gap-x-4">
-              <span className=" text-[96px] sm:text-[128px] font-bold text-primary">
+              <span className="text-[64px] sm:text-[128px] font-bold text-primary">
                 4
               </span>
               <img
                 src={ImgTire}
                 alt="car tire"
-                className="w-[90px] h-[90px] sm:w-[120px] sm:h-[120px]"
+                className="w-[64px] h-[64px] sm:w-[120px] sm:h-[120px]"
                 onLoad={() => setLoading(false)}
               />
-              <span className="text-[96px] sm:text-[128px] font-bold text-primary">
+              <span className="text-[64px] sm:text-[128px] font-bold text-primary">
                 4
               </span>
             </div>
-            <p className="text-center text-h3">Page Not Found</p>
+            <p className="text-center text-h4 sm:text-h3">Page Not Found</p>
             <div className="flex justify-center">
               <Button
                 buttonStyle="primary"
                 type="button"
                 route={ROUTES.HOME}
-                className="mt-12 min-w-[8rem] w-32 max-w-lg"
+                className="mt-12 min-w-[7rem] w-24 max-w-lg py-2 sm:py-3 sm:min-w-[8rem] sm:w-32 sm:max-w-lg"
               >
                 Back to Home
               </Button>
             </div>
           </main>
-          <Footer className="mt-20 md:w-full md:absolute md:bottom-0 md:right-0" />
+          <Footer className="w-full mt-auto" />
         </motion.div>
     </>
   );
