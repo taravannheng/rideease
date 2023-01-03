@@ -66,25 +66,28 @@ const Input: FC<InputProps> = ({
             {errorMessage}
           </p>
         </div>
-        {showSuggestion && hideSuggestion === false && (
-          <motion.div
-            key="alsdkfjsd"
-            initial={{ opacity: 0.5 }}
-            animate={{ opacity: 1 }}
-            className="input__suggestion bg-neutral-grey-1 p-2 mx-2 my-2"
-          >
-            <p className="text-sub1 text-neutral-grey-4">{`${_.startCase(
-              String(type)
-            )} should include:`}</p>
-            <ul className="text-sub1 text-neutral-grey-4 list-disc list-inside">
-              <li>at least one uppercase letter</li>
-              <li>at least one lowercase letter</li>
-              <li>at least one number</li>
-              <li>at least one special character</li>
-              <li>must be between 8 - 16 characters</li>
-            </ul>
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {showSuggestion && hideSuggestion === false && (
+            <motion.div
+              key="alsdkfjsd"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="input__suggestion bg-neutral-grey-1 p-2 mx-2 my-2"
+            >
+              <p className="text-sub1 text-neutral-grey-4">{`${_.startCase(
+                String(type)
+              )} should include:`}</p>
+              <ul className="text-sub1 text-neutral-grey-4 list-disc list-inside">
+                <li>at least one uppercase letter</li>
+                <li>at least one lowercase letter</li>
+                <li>at least one number</li>
+                <li>at least one special character</li>
+                <li>must be between 8 - 16 characters</li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
