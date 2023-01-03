@@ -27,7 +27,7 @@ const SignUpPage: FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <Header type="auth" />
+            <Header type="landing" />
             <AuthForm type="sign up" />
             <Footer className="mt-20 lg:mt-0" />
           </motion.div>

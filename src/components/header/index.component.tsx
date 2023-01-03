@@ -39,7 +39,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
               </Button>
             </Link>
             <Link to={ROUTES.SIGNUP} className="w-full">
-              <Button type="button" buttonStyle="primary">
+              <Button type="button" buttonStyle="text" className="text-primary">
                 Sign Up
               </Button>
             </Link>
