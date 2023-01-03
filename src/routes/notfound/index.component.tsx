@@ -11,6 +11,12 @@ import ProgressIndicator from "../../components/progress-indicator/index.compone
 const NotFoundPage: FC = () => {
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
   return (
     <>
       {loading ? (
