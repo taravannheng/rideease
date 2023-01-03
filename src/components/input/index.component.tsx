@@ -1,5 +1,6 @@
 import { FC, FormEvent } from "react";
 import _ from "lodash";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface InputProps {
   id: string;
@@ -36,11 +37,12 @@ const Input: FC<InputProps> = ({
   onBlur,
   onFocus,
 }) => {
-
   return (
     <>
       <div className={`input ${className}`}>
-        <label className="text-neutral-grey-4" htmlFor={id}>{`${label !== type ? _.startCase(label) : _.startCase(type)}:`}</label>
+        <label className="text-neutral-grey-4" htmlFor={id}>{`${
+          label !== type ? _.startCase(label) : _.startCase(type)
+        }:`}</label>
         <div className="relative">
           <input
             onFocus={onFocus}
@@ -52,16 +54,25 @@ const Input: FC<InputProps> = ({
             id={id}
             name={name}
             className={`input__field ${
-              isValid === false
-                ? "text-status-error"
-                : "text-neutral-dark"
+              isValid === false ? "text-status-error" : "text-neutral-dark"
             } w-full h-10 bg-neutral-grey-1 text-neutral-dark outline-none px-4 text-[16px] border-primary focus:border-2 z-10 relative`}
             required={required}
           />
-          <p className={`input__error-message text-status-error text-body absolute top-0 right-0 transition ${isValid === false && '-translate-y-6'}`}>{errorMessage}</p>
+          <p
+            className={`input__error-message text-status-error text-body absolute top-0 right-0 transition ${
+              isValid === false && "-translate-y-6"
+            }`}
+          >
+            {errorMessage}
+          </p>
         </div>
         {showSuggestion && hideSuggestion === false && (
-          <div className="input__suggestion bg-neutral-grey-1 p-2 mx-2 my-2">
+          <motion.div
+            key="alsdkfjsd"
+            initial={{ opacity: 0.5 }}
+            animate={{ opacity: 1 }}
+            className="input__suggestion bg-neutral-grey-1 p-2 mx-2 my-2"
+          >
             <p className="text-sub1 text-neutral-grey-4">{`${_.startCase(
               String(type)
             )} should include:`}</p>
@@ -72,7 +83,7 @@ const Input: FC<InputProps> = ({
               <li>at least one special character</li>
               <li>must be between 8 - 16 characters</li>
             </ul>
-          </div>
+          </motion.div>
         )}
       </div>
     </>
