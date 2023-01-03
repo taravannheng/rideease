@@ -7,14 +7,11 @@ const ProgressIndicator: FC = () => {
   return (
     <AnimatePresence>
       <motion.div
-        initial={{ opacity: 0.7 }}
-        animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 2 }}
         className="w-full h-screen flex flex-col gap-y-16 justify-center items-center"
       >
         <img src={ImgLogoDark} alt="site logo" className="h-16" />
-        <div className="progress-track w-[200px] h-[8px] bg-neutral-grey-1 p-[2px]">
+        <div className="progress-track w-[200px] h-[8px] bg-neutral-grey-1 p-[2px] overflow-hidden">
           <motion.div
             className="active-indicator w-[40px] h-[4px] bg-primary"
             initial={{ translateX: 0 }}
