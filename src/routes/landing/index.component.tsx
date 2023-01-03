@@ -60,7 +60,7 @@ const LandingPage: FC = () => {
         <AnimatePresence>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
             <motion.div initial={{ translateY: -50 }} animate={{ translateY: 0 }} transition={{ duration: 0.5 }}>
-              <Header type="landing" />
+              <Header type="auth" />
             </motion.div>
             <main className="landing pt-16 md:pt-24 flex flex-col items-center">
               <section className="landing__hero flex flex-col items-center">

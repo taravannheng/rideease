@@ -26,7 +26,7 @@ const NotFoundPage: FC = () => {
           transition={{ duration: 1 }}
           className="relative min-h-screen"
         >
-          <Header type="landing" />
+          <Header type="auth" />
           <main className="not-found mt-8 sm:20">
             <div className="flex flex-row justify-center items-center gap-x-4">
               <span className=" text-[96px] sm:text-[128px] font-bold text-primary">

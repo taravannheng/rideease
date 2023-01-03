@@ -9,7 +9,7 @@ import Cart from "../cart/index.component";
 import * as ROUTES from "../../utils/constants/routes";
 
 interface HeaderProps {
-  type: "landing" | "auth" | "cart";
+  type: "auth" | "logo-only" | "cart";
 }
 
 const Header: FC<HeaderProps> = ({ type }) => {
@@ -21,7 +21,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
 
   return (
     <header className="w-full bg-neutral-grey-1 h-12 sm:h-20 px-4 sm:px-10 flex justify-between items-center">
-      <Link to={ROUTES.HOME} className={`${type === "auth" && "m-auto"}`}>
+      <Link to={ROUTES.HOME} className={`${type === "logo-only" && "m-auto"}`}>
         <img
           src={Logo}
           alt="logo"
@@ -30,7 +30,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
       </Link>
 
       {/* LANDING */}
-      {type === "landing" && (
+      {type === "auth" && (
         <>
           <nav className="buttonContainer w-56 gap-x-1 hidden xl:flex">
             <Link to={ROUTES.SIGNIN} className="w-full">

@@ -27,7 +27,7 @@ const SignInPage: FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <Header type="landing" />
+            <Header type="auth" />
             <AuthForm type="sign in" />
             <Footer className="mt-20 lg:mt-0" />
           </motion.div>
