@@ -10,7 +10,7 @@ const ProgressIndicator: FC = () => {
         initial={{ opacity: 0.7 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 2 }}
         className="w-full h-screen flex flex-col gap-y-16 justify-center items-center"
       >
         <img src={ImgLogoDark} alt="site logo" className="h-16" />
