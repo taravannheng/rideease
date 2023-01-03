@@ -1,11 +1,16 @@
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from "uuid";
 import { motion } from "framer-motion";
 
 interface AccordionProps {
-  items: { id: string; title: string; innerItems: string[] }[];
+  items: {
+    id: string;
+    title: string;
+    innerItems: { text: string; route: string }[];
+  }[];
   className?: string;
 }
 
@@ -44,9 +49,13 @@ const Accordion: FC<AccordionProps> = ({ items, className }) => {
             />
           </h4>
           {item.innerItems.map((innerItem) => (
-            <p key={uuidv4()} className="text-sub1 sm:text-body text-neutral-grey-4 mt-2">
-              {innerItem}
-            </p>
+            <Link to={innerItem.route} key={uuidv4()}>
+              <p
+                className="text-sub1 sm:text-body text-neutral-grey-4 mt-2"
+              >
+                {innerItem.text}
+              </p>
+            </Link>
           ))}
         </motion.li>
       ))}
