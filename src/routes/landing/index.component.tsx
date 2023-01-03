@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as ROUTES from "../../utils/constants/routes";
 import { collection, query, getDocs, getFirestore } from "firebase/firestore";
 import { motion, AnimatePresence } from "framer-motion";
+import _ from "lodash";
 
 import Header from "../../components/header/index.component";
 import ImgCarLamborghini from "../../assets/images/car-lamborghini.png";
@@ -56,8 +57,7 @@ const LandingPage: FC = () => {
 
     // retrieve user state from local storage
     const lsUserState = localStorage.getItem('ls-user-state');
-
-    if (JSON.parse(lsUserState!)?.length > 0) {
+    if (!_.isEmpty(JSON.parse(lsUserState!))) {
       setUserState(lsUserState);
     }
   }, []);
