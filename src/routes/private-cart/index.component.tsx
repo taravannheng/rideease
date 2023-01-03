@@ -1,5 +1,6 @@
 import { FC, useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import _ from "lodash";
 
 import UserContext from "../../contexts/user-context";
 import CartContext from "../../contexts/cart-context";
@@ -11,7 +12,7 @@ const PrivateCartRoute: FC = () => {
   const lsUserState = localStorage.getItem('ls-user-state');
   const lsCartState = localStorage.getItem('ls-cart-state');
 
-  return ((userState || lsUserState) && (cartState?.length > 0 || JSON.parse(lsCartState!)?.length > 0) ) ? <Outlet /> : <Navigate to={ROUTES.SIGNIN} />;
+  return ((!_.isEmpty(userState) || !_.isEmpty(JSON.parse(lsUserState!))) && (!_.isEmpty(cartState) || !_.isEmpty(JSON.parse(lsCartState!))) ) ? <Outlet /> : <Navigate to={ROUTES.SIGNIN} />;
 };
 
 export default PrivateCartRoute;
