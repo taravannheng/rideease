@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "../../components/header/index.component";
@@ -13,8 +13,12 @@ const NotFoundPage: FC = () => {
 
   return (
     <>
-      {loading && <ProgressIndicator />}
       <AnimatePresence>
+        {loading && (
+          <motion.div exit={{ opacity: 0 }}>
+            <ProgressIndicator />
+          </motion.div>
+        )}
         <motion.div
           initial={{ opacity: 0.7 }}
           animate={{ opacity: 1 }}
