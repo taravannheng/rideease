@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { motion, AnimatePresence } from "framer-motion";
+import _ from "lodash";
 
 import Header from "../../components/header/index.component";
 import CartItem from "../../components/cart-item/index.component";
@@ -67,7 +68,7 @@ const CartPage: FC = () => {
   };
 
   useEffect(() => {
-    if (cartState.length === 0 && JSON.parse(lsCartState!).length === 0) {
+    if (_.isEmpty(cartState) && _.isEmpty(JSON.parse(lsCartState!))) {
       navigate(ROUTES.BOOKING);
     }
   }, [cartState]);
