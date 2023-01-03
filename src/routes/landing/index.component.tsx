@@ -11,11 +11,13 @@ import Button from "../../components/button/index.component";
 import Carousel from "../../components/carousel/index.component";
 import Footer from "../../components/footer/index.component";
 import ProductContext from "../../contexts/product-context";
+import UserContext from "../../contexts/user-context";
 import CartItemModel from "../../models/cart-item";
 import ProgressIndicator from "../../components/progress-indicator/index.component";
 
 const LandingPage: FC = () => {
   const { productState, setProductState } = useContext(ProductContext);
+  const { userState, setUserState } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,9 +49,17 @@ const LandingPage: FC = () => {
 
     fetchProducts();
 
+    // update loading state
     setTimeout(() => {
       setLoading(false);
     }, 2000);
+
+    // retrieve user state from local storage
+    const lsUserState = localStorage.getItem('ls-user-state');
+
+    if (JSON.parse(lsUserState!)?.length > 0) {
+      setUserState(lsUserState);
+    }
   }, []);
 
   return (
@@ -60,7 +70,7 @@ const LandingPage: FC = () => {
         <AnimatePresence>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>
             <motion.div initial={{ translateY: -50 }} animate={{ translateY: 0 }} transition={{ duration: 0.5 }}>
-              <Header type="auth" />
+              { userState ? <Header type="sign-out" /> : <Header type="auth" /> }
             </motion.div>
             <main className="landing pt-16 md:pt-24 flex flex-col items-center">
               <section className="landing__hero flex flex-col items-center">
