@@ -69,7 +69,7 @@ const Input: FC<InputProps> = ({
         <AnimatePresence>
           {showSuggestion && hideSuggestion === false && (
             <motion.div
-              key="alsdkfjsd"
+              key="input-suggestion"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
