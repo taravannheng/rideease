@@ -55,12 +55,13 @@ const BookingPage: FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
+            className="min-h-screen flex flex-col"
           >
             <Header type="cart" />
-            <main className="booking">
+            <main className="booking mb-24">
               <Carousel items={productState} />
             </main>
-            <Footer className="mt-20" />
+            <Footer className="mt-auto" />
           </motion.div>
         </AnimatePresence>
       )}

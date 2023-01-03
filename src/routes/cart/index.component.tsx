@@ -93,9 +93,10 @@ const CartPage: FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
+            className="min-h-screen flex flex-col"
           >
             <Header type="cart" />
-            <main className="cart pt-12">
+            <main className="cart pt-12 mb-24">
               <div className="min-w-[8rem] w-32 max-w-lg ml-6 md:ml-12 mb-4">
                 <Button
                   buttonStyle="go-back"
@@ -160,7 +161,7 @@ const CartPage: FC = () => {
                 </div>
               </div>
             </main>
-            <Footer className="mt-20" />
+            <Footer className="mt-auto" />
           </motion.div>
         </AnimatePresence>
       )}
