@@ -15,10 +15,11 @@ const NotFoundPage: FC = () => {
     <>
       <AnimatePresence>
         {loading && (
-          <motion.div exit={{ opacity: 0 }}>
+          <motion.div exit={{ opacity: 0 }} >
             <ProgressIndicator />
           </motion.div>
         )}
+      </AnimatePresence>
         <motion.div
           initial={{ opacity: 0.7 }}
           animate={{ opacity: 1 }}
@@ -56,7 +57,6 @@ const NotFoundPage: FC = () => {
           </main>
           <Footer className="mt-20 md:w-full md:absolute md:bottom-0 md:right-0" />
         </motion.div>
-      </AnimatePresence>
     </>
   );
 };
