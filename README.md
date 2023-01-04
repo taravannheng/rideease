@@ -14,7 +14,7 @@ Functionalities includes:
 
 Technologies used for this project:
 
-### Frontend
+#### Frontend
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="16" width="16" /> &nbsp; &nbsp; ReactJS
 
@@ -24,15 +24,15 @@ Technologies used for this project:
 
 <img src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg" height="16" width="16" /> &nbsp; &nbsp; Framer Motion
 
-### Backend
+#### Backend
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" height="16" width="16" /> &nbsp; &nbsp; Firebase (Auth, Firestore, and Storage)
 
-### Payment
+#### Payment
 
 <img src="https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg" height="16" width="16" /> &nbsp; &nbsp; Stripe
 
-### Formatting and Linting
+#### Formatting and Linting
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" height="16" width="16" /> &nbsp; &nbsp; ESLint
 
