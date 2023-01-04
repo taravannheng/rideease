@@ -25,3 +25,7 @@ Technologies used for this project:
 <img src="https://www.vectorlogo.zone/logos/stripe/stripe-icon.svg" height="16" width="16" /> &nbsp; &nbsp; Stripe
 
 <img src="https://www.vectorlogo.zone/logos/framer/framer-icon.svg" height="16" width="16" /> &nbsp; &nbsp; Framer Motion
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg" height="16" width="16" /> &nbsp; &nbsp; ESLint
+
+<img src="https://cdn.cdnlogo.com/logos/p/5/prettier.svg" height="16" width="16" /> &nbsp; &nbsp; Prettier
