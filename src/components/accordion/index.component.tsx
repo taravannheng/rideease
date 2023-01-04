@@ -39,10 +39,12 @@ const Accordion: FC<AccordionProps> = ({ items, className }) => {
           key={item.id}
           className={`mb-2 cursor-pointer overflow-hidden border-b-[1px] border-neutral-grey-2 p-2`}
         >
+
           <h4
             onClick={() => toggle(index)}
-            className="mb-2 flex flex-row items-center justify-between text-body font-medium text-neutral-dark hover:text-primary sm:text-h4"
+            className="mb-2 flex flex-row items-center  font-medium text-neutral-dark hover:text-primary sm:text-h4 justify-between text-body"
           >
+
             {item.title}{" "}
             <FontAwesomeIcon
               icon={expandedItem === index ? faChevronUp : faChevronDown}

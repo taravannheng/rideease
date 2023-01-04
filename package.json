@@ -34,7 +34,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "./node_modules/.bin/prettier --write './src/**/*.{ts, tsx, js, json, css}'",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{ts, tsx, js, json, css}": [
+      "./node_modules/.bin/prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +64,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "postcss": "^8.4.20",
     "prettier": "^2.8.1",
     "prettier-plugin-tailwindcss": "^0.2.1",
