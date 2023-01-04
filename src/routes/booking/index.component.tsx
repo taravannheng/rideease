@@ -58,7 +58,7 @@ const BookingPage: FC = () => {
             className="min-h-screen flex flex-col"
           >
             <Header type="cart" />
-            <main className="booking mb-24">
+            <main className="booking mt-8 mb-24">
               <Carousel items={productState} />
             </main>
             <Footer className="mt-auto" />
