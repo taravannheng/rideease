@@ -10,8 +10,8 @@ const ProgressIndicator: FC = () => {
       <div className="progress-track h-[8px] w-[200px] overflow-hidden bg-neutral-grey-1 p-[2px]">
         <motion.div
           className="active-indicator h-[4px] w-[40px] bg-primary"
-          initial={{ translateX: 0 }}
-          animate={{ translateX: [0, 160, 0] }}
+          initial={{ x: -10 }}
+          animate={{ x: [-10, 170, -10] }}
           transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
         ></motion.div>
       </div>
