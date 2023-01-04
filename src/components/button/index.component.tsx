@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface ButtonProps {
-  id?: string,
+  id?: string;
   type: "button" | "submit";
   buttonStyle: "primary" | "secondary" | "text" | "go-back";
   className?: string;
@@ -35,7 +35,8 @@ const Button: FC<ButtonProps> = ({
       appearance = "bg-primary text-neutral-light hover:bg-primary-dark";
       break;
     case "secondary":
-      appearance = "bg-neutral-grey-1 text-neutral-dark hover:bg-primary hover:text-neutral-light";
+      appearance =
+        "bg-neutral-grey-1 text-neutral-dark hover:bg-primary hover:text-neutral-light";
       break;
     case "text":
       appearance = "bg-none text-neutral-dark hover:text-primary";
@@ -55,14 +56,14 @@ const Button: FC<ButtonProps> = ({
             id={id}
             type={type}
             disabled={disabled}
-            className={`text-body border-none container cursor-pointer transition min-w-full flex flex-row justify-center items-center py-3 px-3 gap-x-2 ${appearance} ${className}`}
+            className={`container flex min-w-full cursor-pointer flex-row items-center justify-center gap-x-2 border-none py-3 px-3 text-body transition ${appearance} ${className}`}
           >
-            {iconSource && (<FontAwesomeIcon icon={iconSource} />)}
+            {iconSource && <FontAwesomeIcon icon={iconSource} />}
             {imageSource && (
               <img
                 src={imageSource}
                 alt="button logo"
-                className="w-6 h-6 mr-2"
+                className="mr-2 h-6 w-6"
               />
             )}{" "}
             {children}
@@ -76,10 +77,10 @@ const Button: FC<ButtonProps> = ({
           type={type}
           onClick={onClick}
           disabled={disabled}
-          className={`${appearance} text-body  border-none container cursor-pointer transition min-w-full flex flex-row justify-center items-center py-3 px-3 ${className}`}
+          className={`${appearance} container  flex min-w-full cursor-pointer flex-row items-center justify-center border-none py-3 px-3 text-body transition ${className}`}
         >
           {imageSource && (
-            <img src={imageSource} alt="button logo" className="w-6 h-6 mr-2" />
+            <img src={imageSource} alt="button logo" className="mr-2 h-6 w-6" />
           )}{" "}
           {children}
         </button>

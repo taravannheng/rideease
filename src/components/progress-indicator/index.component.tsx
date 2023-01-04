@@ -5,11 +5,11 @@ import ImgLogoDark from "../../assets/logos/logo-dark.png";
 
 const ProgressIndicator: FC = () => {
   return (
-    <div className="w-full h-screen flex flex-col gap-y-16 justify-center items-center">
+    <div className="flex h-screen w-full flex-col items-center justify-center gap-y-16">
       <img src={ImgLogoDark} alt="site logo" className="h-16" />
-      <div className="progress-track w-[200px] h-[8px] bg-neutral-grey-1 p-[2px] overflow-hidden">
+      <div className="progress-track h-[8px] w-[200px] overflow-hidden bg-neutral-grey-1 p-[2px]">
         <motion.div
-          className="active-indicator w-[40px] h-[4px] bg-primary"
+          className="active-indicator h-[4px] w-[40px] bg-primary"
           initial={{ translateX: 0 }}
           animate={{ translateX: [0, 160, 0] }}
           transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}

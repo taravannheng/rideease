@@ -55,11 +55,11 @@ const Input: FC<InputProps> = ({
             name={name}
             className={`input__field ${
               isValid === false ? "text-status-error" : "text-neutral-dark"
-            } w-full h-10 bg-neutral-grey-1 text-neutral-dark outline-none px-4 text-[16px] border-primary focus:border-2 z-10 relative`}
+            } relative z-10 h-10 w-full border-primary bg-neutral-grey-1 px-4 text-[16px] text-neutral-dark outline-none focus:border-2`}
             required={required}
           />
           <p
-            className={`input__error-message text-status-error text-body absolute top-0 right-0 transition ${
+            className={`input__error-message absolute top-0 right-0 text-body text-status-error transition ${
               isValid === false && "-translate-y-6"
             }`}
           >
@@ -73,12 +73,12 @@ const Input: FC<InputProps> = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="input__suggestion bg-neutral-grey-1 p-2 mx-2 my-2"
+              className="input__suggestion mx-2 my-2 bg-neutral-grey-1 p-2"
             >
               <p className="text-sub1 text-neutral-grey-4">{`${_.startCase(
                 String(type)
               )} should include:`}</p>
-              <ul className="text-sub1 text-neutral-grey-4 list-disc list-inside">
+              <ul className="list-inside list-disc text-sub1 text-neutral-grey-4">
                 <li>at least one uppercase letter</li>
                 <li>at least one lowercase letter</li>
                 <li>at least one number</li>

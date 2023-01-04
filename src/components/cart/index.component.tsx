@@ -12,10 +12,13 @@ const Cart: FC = () => {
 
   return (
     <Link to={cartState.length > 0 ? ROUTES.CART : location.pathname}>
-      <div className="cart h-8 sm:h-12 bg-primary hover:bg-primary-dark transition border-none text-neutral-light text-body flex items-center justify-between px-4 sm:px-6 gap-x-2 sm:gap-x-4 cursor-pointer">
-        <FontAwesomeIcon icon={faCartShopping} className="w-[16px] sm:w-[24px] h-[16px] sm:h-[24px]" />
-        <div className="cart__count-container w-4 h-4 sm:w-6 sm:h-6 bg-neutral-light flex items-center justify-center rounded-full">
-          <span className="cart__count text-neutral-dark text-sub1">
+      <div className="cart flex h-8 cursor-pointer items-center justify-between gap-x-2 border-none bg-primary px-4 text-body text-neutral-light transition hover:bg-primary-dark sm:h-12 sm:gap-x-4 sm:px-6">
+        <FontAwesomeIcon
+          icon={faCartShopping}
+          className="h-[16px] w-[16px] sm:h-[24px] sm:w-[24px]"
+        />
+        <div className="cart__count-container flex h-4 w-4 items-center justify-center rounded-full bg-neutral-light sm:h-6 sm:w-6">
+          <span className="cart__count text-sub1 text-neutral-dark">
             {cartState.length}
           </span>
         </div>

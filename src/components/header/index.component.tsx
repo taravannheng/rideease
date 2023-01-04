@@ -1,10 +1,7 @@
 import { FC, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { getAuth, signOut } from "firebase/auth";
 
 import Logo from "../../assets/logos/logo-dark.png";
@@ -42,7 +39,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
   };
 
   return (
-    <header className="w-full bg-neutral-grey-1 h-12 sm:h-20 px-4 sm:px-10 flex justify-between items-center">
+    <header className="flex h-12 w-full items-center justify-between bg-neutral-grey-1 px-4 sm:h-20 sm:px-10">
       <Link to={ROUTES.HOME} className={`${type === "logo-only" && "m-auto"}`}>
         <img src={Logo} alt="logo" className="h-8 sm:h-10 xl:h-12" />
       </Link>
@@ -50,7 +47,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
       {/* AUTH */}
       {type === "auth" && (
         <>
-          <nav className="buttonContainer w-56 gap-x-1 hidden xl:flex">
+          <nav className="buttonContainer hidden w-56 gap-x-1 xl:flex">
             <Link to={ROUTES.SIGNIN} className="w-full">
               <Button type="button" buttonStyle="text">
                 Sign In
@@ -64,11 +61,11 @@ const Header: FC<HeaderProps> = ({ type }) => {
           </nav>
           <FontAwesomeIcon
             icon={faBars}
-            className="w-5 h-5 text-neutral-dark xl:hidden cursor-pointer"
+            className="h-5 w-5 cursor-pointer text-neutral-dark xl:hidden"
             onClick={showMobileNavToggler}
           />
           <nav
-            className={`mobile-nav absolute w-screen flex flex-col items-center pt-20 gap-y-8 h-screen bg-neutral-grey-1 top-0 left-0 ${
+            className={`mobile-nav absolute top-0 left-0 flex h-screen w-screen flex-col items-center gap-y-8 bg-neutral-grey-1 pt-20 ${
               !showMobileNav && "translate-x-full"
             } transition`}
           >
@@ -84,7 +81,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
             </Link>
             <FontAwesomeIcon
               icon={faXmark}
-              className="w-5 h-5 cursor-pointer text-neutral-dark absolute top-4 right-4"
+              className="absolute top-4 right-4 h-5 w-5 cursor-pointer text-neutral-dark"
               onClick={showMobileNavToggler}
             />
           </nav>
@@ -93,9 +90,9 @@ const Header: FC<HeaderProps> = ({ type }) => {
 
       {/* CART */}
       {type === "cart" && (
-        <div className="flex flex-row gap-x-8 items-center">
+        <div className="flex flex-row items-center gap-x-8">
           <Cart />
-          <nav className="buttonContainer gap-x-1 hidden xl:flex">
+          <nav className="buttonContainer hidden gap-x-1 xl:flex">
             <Button
               type="button"
               buttonStyle="text"
@@ -107,11 +104,11 @@ const Header: FC<HeaderProps> = ({ type }) => {
           </nav>
           <FontAwesomeIcon
             icon={faBars}
-            className="w-5 h-5 text-neutral-dark xl:hidden cursor-pointer"
+            className="h-5 w-5 cursor-pointer text-neutral-dark xl:hidden"
             onClick={showMobileNavToggler}
           />
           <nav
-            className={`mobile-nav absolute z-50 w-screen flex flex-col items-center pt-20 gap-y-8 h-screen bg-neutral-grey-1 top-0 left-0 ${
+            className={`mobile-nav absolute top-0 left-0 z-50 flex h-screen w-screen flex-col items-center gap-y-8 bg-neutral-grey-1 pt-20 ${
               !showMobileNav && "translate-x-full"
             } transition`}
           >
@@ -120,7 +117,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
             </Button>
             <FontAwesomeIcon
               icon={faXmark}
-              className="w-5 h-5 cursor-pointer text-neutral-dark absolute top-4 right-4"
+              className="absolute top-4 right-4 h-5 w-5 cursor-pointer text-neutral-dark"
               onClick={showMobileNavToggler}
             />
           </nav>
@@ -130,7 +127,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
       {/* SIGN OUT */}
       {type === "sign-out" && (
         <>
-          <nav className="buttonContainer gap-x-1 hidden xl:flex">
+          <nav className="buttonContainer hidden gap-x-1 xl:flex">
             <Button
               type="button"
               buttonStyle="text"
@@ -142,11 +139,11 @@ const Header: FC<HeaderProps> = ({ type }) => {
           </nav>
           <FontAwesomeIcon
             icon={faBars}
-            className="w-5 h-5 text-neutral-dark xl:hidden cursor-pointer"
+            className="h-5 w-5 cursor-pointer text-neutral-dark xl:hidden"
             onClick={showMobileNavToggler}
           />
           <nav
-            className={`mobile-nav absolute w-screen flex flex-col items-center pt-20 gap-y-8 h-screen bg-neutral-grey-1 top-0 left-0 ${
+            className={`mobile-nav absolute top-0 left-0 flex h-screen w-screen flex-col items-center gap-y-8 bg-neutral-grey-1 pt-20 ${
               !showMobileNav && "translate-x-full"
             } transition`}
           >
@@ -155,7 +152,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
             </Button>
             <FontAwesomeIcon
               icon={faXmark}
-              className="w-5 h-5 cursor-pointer text-neutral-dark absolute top-4 right-4"
+              className="absolute top-4 right-4 h-5 w-5 cursor-pointer text-neutral-dark"
               onClick={showMobileNavToggler}
             />
           </nav>

@@ -76,17 +76,21 @@ const Carousel: FC<CarouselProps> = ({
       <div
         className={`${
           activeItem === 0 && "hidden"
-        } carousel__left-icon w-8 h-8 sm:w-10 sm:h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full left-5 sm:left-10 lg:left-24 xl:left-40 ${showDetails ? 'top-12 sm:top-20 lg:top-40' : 'top-20 sm:top-28 lg:top-48'} z-10`}
+        } carousel__left-icon absolute left-5 flex h-8 w-8 items-center justify-center rounded-full bg-neutral-grey-1 sm:left-10 sm:h-10 sm:w-10 lg:left-24 xl:left-40 ${
+          showDetails
+            ? "top-12 sm:top-20 lg:top-40"
+            : "top-20 sm:top-28 lg:top-48"
+        } z-10`}
         onClick={carouselLeftIconHandler}
       >
         <FontAwesomeIcon
           icon={faChevronLeft}
-          className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-dark cursor-pointer hover:text-primary"
+          className="h-4 w-4 cursor-pointer text-neutral-dark hover:text-primary sm:h-5 sm:w-5"
         />
       </div>
       <AnimatePresence>
         <motion.ul
-          className={`landing__car-preview-slides flex flex-row w-full mt-10 transition`}
+          className={`landing__car-preview-slides mt-10 flex w-full flex-row transition`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, translateX: `-${activeItem * 100}%` }}
           exit={{ opacity: 0 }}
@@ -95,43 +99,57 @@ const Carousel: FC<CarouselProps> = ({
           {items.map((item, index) => (
             <li
               key={item.id}
-              className={`carousel-item-${index} min-w-full flex flex-col items-center`}
+              className={`carousel-item-${index} flex min-w-full flex-col items-center`}
             >
               <figure>
                 <img
                   src={item.imgSrc}
                   alt={item.alt}
-                  className={`h-32 sm:h-48 max-h-60 lg:h-96 lg:max-h-96 pointer-events-none select-none ${item.className}`}
+                  className={`pointer-events-none h-32 max-h-60 select-none sm:h-48 lg:h-96 lg:max-h-96 ${item.className}`}
                 />
-                <figcaption className="text-center text-neutral-grey-4 mt-4">
+                <figcaption className="mt-4 text-center text-neutral-grey-4">
                   {item.name}
                 </figcaption>
               </figure>
               {showDetails && (
-                <div className="bg-neutral-grey-1 flex w-[340px] items-start flex-row md:w-[560px] md:p-8 p-4 justify-between items-center mt-4 sm:mt-8">
+                <div className="mt-4 flex w-[340px] flex-row items-start items-center justify-between bg-neutral-grey-1 p-4 sm:mt-8 md:w-[560px] md:p-8">
                   <div className="flex w-full w-auto flex-col items-center justify-center">
-                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Category</p>
-                    <p className="text-neutral-dark text-sub1 md:text-body">{item.details.category}</p>
+                    <p className="text-sub2 text-neutral-grey-4 md:text-sub1">
+                      Category
+                    </p>
+                    <p className="text-sub1 text-neutral-dark md:text-body">
+                      {item.details.category}
+                    </p>
                   </div>
                   <div className="flex w-full w-auto flex-col items-center justify-center">
-                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Mileage</p>
-                    <p className="text-neutral-dark text-sub1 md:text-body">
+                    <p className="text-sub2 text-neutral-grey-4 md:text-sub1">
+                      Mileage
+                    </p>
+                    <p className="text-sub1 text-neutral-dark md:text-body">
                       {item.details.mileage.toLocaleString()} kms
                     </p>
                   </div>
                   <div className="flex w-full w-auto flex-col items-center justify-center">
-                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Fuel Type</p>
-                    <p className="text-neutral-dark text-sub1 md:text-body">{item.details.fuelType}</p>
+                    <p className="text-sub2 text-neutral-grey-4 md:text-sub1">
+                      Fuel Type
+                    </p>
+                    <p className="text-sub1 text-neutral-dark md:text-body">
+                      {item.details.fuelType}
+                    </p>
                   </div>
                   <div className="flex w-full w-auto flex-col items-center justify-center">
-                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">Seats</p>
-                    <p className="text-neutral-dark text-sub1 md:text-body">{item.details.seats}</p>
+                    <p className="text-sub2 text-neutral-grey-4 md:text-sub1">
+                      Seats
+                    </p>
+                    <p className="text-sub1 text-neutral-dark md:text-body">
+                      {item.details.seats}
+                    </p>
                   </div>
                   <div className="flex w-full w-auto flex-col items-center justify-center">
-                    <p className="text-neutral-grey-4 text-sub2 md:text-sub1">
+                    <p className="text-sub2 text-neutral-grey-4 md:text-sub1">
                       Price Per Day
                     </p>
-                    <p className="text-neutral-dark text-sub1 md:text-body">
+                    <p className="text-sub1 text-neutral-dark md:text-body">
                       ${item.details.pricePerDay}
                     </p>
                   </div>
@@ -142,9 +160,9 @@ const Carousel: FC<CarouselProps> = ({
         </motion.ul>
       </AnimatePresence>
       {showBookButton && (
-        <div className="booking__book-button flex items-center justify-center mt-8 sm:mt-16">
+        <div className="booking__book-button mt-8 flex items-center justify-center sm:mt-16">
           <Button
-            className="min-w-[7rem] w-24 max-w-lg py-2 sm:py-3 sm:min-w-[8rem] sm:w-32 sm:max-w-lg"
+            className="w-24 min-w-[7rem] max-w-lg py-2 sm:w-32 sm:min-w-[8rem] sm:max-w-lg sm:py-3"
             buttonStyle="primary"
             type="button"
             onClick={cartHandler}
@@ -164,12 +182,16 @@ const Carousel: FC<CarouselProps> = ({
       <div
         className={`${
           activeItem === items.length - 1 && "hidden"
-        } carousel__right-icon w-8 h-8 sm:w-10 sm:h-10 absolute flex justify-center items-center bg-neutral-grey-1 rounded-full right-5 sm:right-10 lg:right-24 xl:right-40 ${showDetails ? 'top-12 sm:top-20 lg:top-40' : 'top-20 sm:top-28 lg:top-48'} z-10`}
+        } carousel__right-icon absolute right-5 flex h-8 w-8 items-center justify-center rounded-full bg-neutral-grey-1 sm:right-10 sm:h-10 sm:w-10 lg:right-24 xl:right-40 ${
+          showDetails
+            ? "top-12 sm:top-20 lg:top-40"
+            : "top-20 sm:top-28 lg:top-48"
+        } z-10`}
         onClick={carouselRightIconHandler}
       >
         <FontAwesomeIcon
           icon={faChevronRight}
-          className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-dark cursor-pointer hover:text-primary"
+          className="h-4 w-4 cursor-pointer text-neutral-dark hover:text-primary sm:h-5 sm:w-5"
         />
       </div>
     </div>

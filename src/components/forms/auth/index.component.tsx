@@ -42,7 +42,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
   const [showSuggestion, setShowSuggestion] = useState(false);
 
   // CONTEXTS
-  const {setUserState} = useContext(UserContext);
+  const { setUserState } = useContext(UserContext);
 
   // ROUTES
   const navigate = useNavigate();
@@ -135,7 +135,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
         authState.password.value
       );
       setUserState(result);
-      localStorage.setItem('ls-user-state', JSON.stringify(result));
+      localStorage.setItem("ls-user-state", JSON.stringify(result));
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
@@ -171,7 +171,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
         authState.password.value
       );
       setUserState(result);
-      localStorage.setItem('ls-user-state', JSON.stringify(result));
+      localStorage.setItem("ls-user-state", JSON.stringify(result));
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
@@ -212,7 +212,7 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
       // const token = credential.accessToken;
       const user = result.user;
       setUserState(credential);
-      localStorage.setItem('ls-user-state', JSON.stringify(credential));
+      localStorage.setItem("ls-user-state", JSON.stringify(credential));
       navigate(ROUTES.BOOKING);
     } catch (error: any) {
       const errorCode = error.code;
@@ -245,18 +245,18 @@ const AuthForm: FC<AuthFormProps> = ({ type }) => {
   };
 
   return (
-    <section className="auth flex flex-col lg:flex-row lg:h-[52rem]">
-      <div className="auth__img hidden lg:basis-7/12 lg:block p-8 pr-0">
-        <div className="bg-auth-banner bg-center bg-cover w-full h-full"></div>
+    <section className="auth flex flex-col lg:h-[52rem] lg:flex-row">
+      <div className="auth__img hidden p-8 pr-0 lg:block lg:basis-7/12">
+        <div className="h-full w-full bg-auth-banner bg-cover bg-center"></div>
       </div>
-      <div className="auth__form px-8 basis-full lg:basis-5/12 lg:mb-32">
+      <div className="auth__form basis-full px-8 lg:mb-32 lg:basis-5/12">
         <form
           onSubmit={
             type === "sign up" ? signUpSubmitHandler : signInSubmitHandler
           }
         >
           <ToastContainer />
-          <h1 className="text-h4 text-neutral-dark mt-16 lg:mt-32 mb-8">
+          <h1 className="mt-16 mb-8 text-h4 text-neutral-dark lg:mt-32">
             SIGN {type === "sign up" ? "UP" : "IN"}
           </h1>
           <Input

@@ -37,11 +37,11 @@ const Accordion: FC<AccordionProps> = ({ items, className }) => {
           }}
           style={{ height: `${expandedItem === index ? "auto" : "2.5rem"}` }}
           key={item.id}
-          className={`border-b-[1px] border-neutral-grey-2 overflow-hidden mb-2 p-2 cursor-pointer`}
+          className={`mb-2 cursor-pointer overflow-hidden border-b-[1px] border-neutral-grey-2 p-2`}
         >
           <h4
             onClick={() => toggle(index)}
-            className="text-body font-medium sm:text-h4 text-neutral-dark hover:text-primary flex flex-row justify-between items-center mb-2"
+            className="mb-2 flex flex-row items-center justify-between text-body font-medium text-neutral-dark hover:text-primary sm:text-h4"
           >
             {item.title}{" "}
             <FontAwesomeIcon
@@ -50,9 +50,7 @@ const Accordion: FC<AccordionProps> = ({ items, className }) => {
           </h4>
           {item.innerItems.map((innerItem) => (
             <Link to={innerItem.route} key={uuidv4()}>
-              <p
-                className="text-sub1 sm:text-body text-neutral-grey-4 mt-2"
-              >
+              <p className="mt-2 text-sub1 text-neutral-grey-4 sm:text-body">
                 {innerItem.text}
               </p>
             </Link>
