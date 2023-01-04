@@ -55,7 +55,7 @@ const BookingPage: FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="min-h-screen flex flex-col"
+            className="flex min-h-screen flex-col"
           >
             <Header type="cart" />
             <main className="booking mt-8 mb-24">

@@ -9,10 +9,15 @@ import * as ROUTES from "../../utils/constants/routes";
 const PrivateCartRoute: FC = () => {
   const { userState } = useContext(UserContext);
   const { cartState } = useContext(CartContext);
-  const lsUserState = localStorage.getItem('ls-user-state');
-  const lsCartState = localStorage.getItem('ls-cart-state');
+  const lsUserState = localStorage.getItem("ls-user-state");
+  const lsCartState = localStorage.getItem("ls-cart-state");
 
-  return ((!_.isEmpty(userState) || !_.isEmpty(JSON.parse(lsUserState!))) && (!_.isEmpty(cartState) || !_.isEmpty(JSON.parse(lsCartState!))) ) ? <Outlet /> : <Navigate to={ROUTES.SIGNIN} />;
+  return (!_.isEmpty(userState) || !_.isEmpty(JSON.parse(lsUserState!))) &&
+    (!_.isEmpty(cartState) || !_.isEmpty(JSON.parse(lsCartState!))) ? (
+    <Outlet />
+  ) : (
+    <Navigate to={ROUTES.SIGNIN} />
+  );
 };
 
 export default PrivateCartRoute;

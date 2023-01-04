@@ -7,9 +7,13 @@ import * as ROUTES from "../../utils/constants/routes";
 
 const PrivateBookingRoute: FC = () => {
   const { userState } = useContext(UserContext);
-  const lsUserState = localStorage.getItem('ls-user-state');
+  const lsUserState = localStorage.getItem("ls-user-state");
 
-  return (!_.isEmpty(userState) || !_.isEmpty(JSON.parse(lsUserState!))) ? <Outlet /> : <Navigate to={ROUTES.SIGNIN} />;
+  return !_.isEmpty(userState) || !_.isEmpty(JSON.parse(lsUserState!)) ? (
+    <Outlet />
+  ) : (
+    <Navigate to={ROUTES.SIGNIN} />
+  );
 };
 
 export default PrivateBookingRoute;

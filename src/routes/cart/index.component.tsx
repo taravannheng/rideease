@@ -94,37 +94,37 @@ const CartPage: FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="min-h-screen flex flex-col"
+            className="flex min-h-screen flex-col"
           >
             <Header type="cart" />
-            <main className="cart pt-12 mb-24">
-              <div className="min-w-[8rem] w-32 max-w-lg ml-6 md:ml-12 mb-4">
+            <main className="cart mb-24 pt-12">
+              <div className="ml-6 mb-4 w-32 min-w-[8rem] max-w-lg md:ml-12">
                 <Button
                   buttonStyle="go-back"
                   iconSource={faChevronLeft}
                   route={ROUTES.BOOKING}
                   type="button"
-                  className="min-w-[8rem] w-32 max-w-lg !justify-start !p-0"
+                  className="w-32 min-w-[8rem] max-w-lg !justify-start !p-0"
                 >
                   Booking
                 </Button>
               </div>
 
-              <h1 className="cart__title text-neutral-dark text-h3 md:text-h2 pl-6 md:pl-12">
+              <h1 className="cart__title pl-6 text-h3 text-neutral-dark md:pl-12 md:text-h2">
                 Cart
               </h1>
-              <ul className="cart__title-list px-6 md:px-12 flex flex-row items-center justify-between mt-12 gap-x-2">
-                <li className="text-neutral-grey-4 text-body basis-1/3 flex justify-center bg-neutral-grey-1 py-2">
+              <ul className="cart__title-list mt-12 flex flex-row items-center justify-between gap-x-2 px-6 md:px-12">
+                <li className="flex basis-1/3 justify-center bg-neutral-grey-1 py-2 text-body text-neutral-grey-4">
                   Product
                 </li>
-                <li className="text-neutral-grey-4 text-body basis-1/3 flex justify-center bg-neutral-grey-1 py-2">
+                <li className="flex basis-1/3 justify-center bg-neutral-grey-1 py-2 text-body text-neutral-grey-4">
                   Price Per Day
                 </li>
-                <li className="text-neutral-grey-4 text-body basis-1/3 flex justify-center bg-neutral-grey-1 py-2">
+                <li className="flex basis-1/3 justify-center bg-neutral-grey-1 py-2 text-body text-neutral-grey-4">
                   Action
                 </li>
               </ul>
-              <ul className="cart__item px-6 md:px-12 flex flex-col items-center justify-between mt-12 gap-x-2">
+              <ul className="cart__item mt-12 flex flex-col items-center justify-between gap-x-2 px-6 md:px-12">
                 {cartState.map((item: CartItemModel) => (
                   <CartItem
                     key={item.id}
@@ -134,8 +134,8 @@ const CartPage: FC = () => {
                   />
                 ))}
               </ul>
-              <div className="flex flex-row justify-end px-6 md:px-12 mt-4">
-                <p className="basis-1/3 flex justify-center relative">
+              <div className="mt-4 flex flex-row justify-end px-6 md:px-12">
+                <p className="relative flex basis-1/3 justify-center">
                   <span className="absolute left-0">Total:</span>
                   <span>
                     $
@@ -147,15 +147,15 @@ const CartPage: FC = () => {
                   </span>
                 </p>
               </div>
-              <div className="flex flex-row gap-x-4 justify-between px-6 md:px-12 mt-12">
+              <div className="mt-12 flex flex-row justify-between gap-x-4 px-6 md:px-12">
                 <div></div>
                 <div></div>
-                <div className="basis-1/3 flex justify-center">
+                <div className="flex basis-1/3 justify-center">
                   <Button
                     buttonStyle="primary"
                     onClick={redirectToCheckout}
                     type="button"
-                    className="min-w-[8rem] w-32 max-w-lg"
+                    className="w-32 min-w-[8rem] max-w-lg"
                   >
                     Checkout
                   </Button>

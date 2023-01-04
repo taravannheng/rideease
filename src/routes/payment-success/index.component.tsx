@@ -36,19 +36,19 @@ const PaymentSuccessPage: FC = () => {
           >
             <div className="relative min-h-screen">
               <Header type="cart" />
-              <main className="not-found mt-8 sm:20 flex flex-col items-center pt-16">
+              <main className="not-found sm:20 mt-8 flex flex-col items-center pt-16">
                 <FontAwesomeIcon
                   icon={faCircleCheck}
-                  className="text-primary w-16 h-16 mb-8"
+                  className="mb-8 h-16 w-16 text-primary"
                 />
-                <h1 className="text-neutral-dark text-h2 text-center mb-16">
+                <h1 className="mb-16 text-center text-h2 text-neutral-dark">
                   Payment Success!
                 </h1>
                 <Button buttonStyle="primary" type="button" route={ROUTES.HOME}>
                   Back to Home
                 </Button>
               </main>
-              <Footer className="mt-20 md:w-full md:absolute md:bottom-0 md:right-0" />
+              <Footer className="mt-20 md:absolute md:bottom-0 md:right-0 md:w-full" />
             </div>
           </motion.div>
         </AnimatePresence>
