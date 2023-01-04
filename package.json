@@ -72,7 +72,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{ts, tsx, js, json, css}": [
+    "src/**/*.{ts, tsx, js}": [
       "npm run prettier:fix",
       "npm run lint"
     ]
