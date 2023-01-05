@@ -92,11 +92,10 @@ const LandingPage: FC = () => {
                   Car Rental Made Easy
                 </h1>
                 <p className="m-auto w-10/12 text-center text-body text-neutral-grey-4 md:w-6/12 lg:w-1/3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                  vulputate libero et velit interdum, ac aliquet odio mattis.
-                  Class aptent taciti sociosqu ad litora torquent per conubia
-                  nostra, per inceptos himenaeos. Curabitur tempus urna at
-                  turpis condimentum
+                  Easily rent a car with HERTZ UTS. Create an account with email
+                  or Google Sign In then select from a wide variety of available
+                  cars. Payments can be made easily and quickly with our Stripe
+                  integration. Sign up now and start booking with our platform.
                 </p>
                 <div className="button-container mt-8 w-40">
                   <Link to={ROUTES.BOOKING}>
