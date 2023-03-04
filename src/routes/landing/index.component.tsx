@@ -92,14 +92,11 @@ const LandingPage: FC = () => {
                   Car Rental Made Easy
                 </h1>
                 <p className="m-auto w-10/12 text-center text-body text-neutral-grey-4 md:w-6/12 lg:w-1/3">
-                  Explore your destination with ease and comfort by choosing our
-                  car rental service. With a variety of well-maintained vehicles
-                  to choose from, flexible rental options, and competitive
-                  rates, we make it easy and affordable to travel on your own
-                  terms. Our friendly customer service team is always available
-                  to assist you, ensuring a hassle-free rental experience.
-                  Whether you're traveling for business or pleasure, choose us
-                  for a smooth and enjoyable journey.
+                  Travel your way with our car rental service. Choose from a
+                  variety of well-maintained vehicles, enjoy flexible rental
+                  options, and affordable rates. Our friendly customer service
+                  team ensures a hassle-free rental experience. Book now for a
+                  smooth and enjoyable journey.
                 </p>
                 <div className="button-container mt-8 w-40">
                   <Link to={ROUTES.BOOKING}>
