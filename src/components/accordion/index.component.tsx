@@ -29,15 +29,9 @@ const Accordion: FC<AccordionProps> = ({ items, className }) => {
   return (
     <ul className={`accordion ${className}`}>
       {items.map((item, index) => (
-        <motion.li
-          layout
-          transition={{
-            opacity: { ease: "linear" },
-            layout: { duration: 0.15 },
-          }}
-          style={{ height: `${expandedItem === index ? "auto" : "2.5rem"}` }}
+        <li
           key={item.id}
-          className={`mb-2 cursor-pointer overflow-hidden border-b-[1px] border-neutral-grey-2 p-2`}
+          className={`mb-2 cursor-pointer overflow-hidden border-b-[1px] border-neutral-grey-2 p-2 pb-0`}
         >
           <h4
             onClick={() => toggle(index)}
@@ -48,14 +42,20 @@ const Accordion: FC<AccordionProps> = ({ items, className }) => {
               icon={expandedItem === index ? faChevronUp : faChevronDown}
             />
           </h4>
-          {item.innerItems.map((innerItem) => (
-            <Link to={innerItem.route} key={uuidv4()}>
-              <p className="mt-2 text-sub1 text-neutral-grey-4 sm:text-body">
-                {innerItem.text}
-              </p>
-            </Link>
-          ))}
-        </motion.li>
+          <div
+            className={`transition-all duration-500 ${
+              expandedItem === index ? `h-full` : "m-0 h-0 p-0"
+            }`}
+          >
+            {item.innerItems.map((innerItem) => (
+              <Link to={innerItem.route}>
+                <p className="mt-2 text-sub1 text-neutral-grey-4 sm:text-body">
+                  {innerItem.text}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </li>
       ))}
     </ul>
   );
