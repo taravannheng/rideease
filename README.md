@@ -1,4 +1,4 @@
-# HERTZ UTS
+# RIDEEASE
 
 A car rental website that allows users to book cars for rent.
 
