@@ -41,7 +41,7 @@ const Header: FC<HeaderProps> = ({ type }) => {
   return (
     <header className="flex h-12 w-full items-center justify-between bg-neutral-grey-1 px-4 sm:h-20 sm:px-10">
       <Link to={ROUTES.HOME} className={`${type === "logo-only" && "m-auto"}`}>
-        <img src={Logo} alt="logo" className="h-8 sm:h-10 xl:h-12" />
+        <img src={Logo} alt="logo" className="h-4 sm:h-6 xl:h-8" />
       </Link>
 
       {/* AUTH */}

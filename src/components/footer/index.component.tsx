@@ -49,7 +49,7 @@ const Footer: FC<FooterProps> = ({ className = "" }) => {
       <div className="flex flex-col gap-y-8 md:flex-row md:justify-between">
         <div className="footer__left-section md:basis-1/4">
           <Link to={ROUTES.HOME}>
-            <img src={Logo} alt="Logo" className="mb-4 h-8 sm:h-10 xl:h-12" />
+            <img src={Logo} alt="Logo" className="mb-4 h-4 sm:h-6 xl:h-8" />
           </Link>
           <p className="text-left text-sub1 text-neutral-grey-4 sm:text-body">
             15 Broadway, Ultimo NSW <br />
